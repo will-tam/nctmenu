@@ -10,7 +10,9 @@
 
 -------------------------
 
- - import :
+ - imports :
+   -sys
+   - os
    - hashlib
-   - argparse
-   - pycurl (3rd party)
+   - re
+   - docopt (3rd party) || argparse
