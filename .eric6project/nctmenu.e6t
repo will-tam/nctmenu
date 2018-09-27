@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project nctmenu -->
-<!-- Saved: 2018-08-18, 08:47:08 -->
+<!-- Saved: 2018-09-26, 17:11:34 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
+  <Task priority="1" completed="False" type="1" uid="{1d0b247e-7260-4ddc-94a6-8ea35d60d71c}">
+    <Summary>TODO: A placer dans __create_conf après MaP.</Summary>
+    <Description></Description>
+    <Created>2018-09-26, 16:10:50</Created>
+    <Resource>
+      <Filename>config.py</Filename>
+      <Linenumber>65</Linenumber>
+    </Resource>
+  </Task>
 </Tasks>

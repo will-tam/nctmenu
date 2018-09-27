@@ -10,21 +10,29 @@ import hashlib
 import re
 
 # Third-part library import.
+import docopt
 
 # Project library import.
 import infos
+import config
 
 ######################
 
-def main(arg):
+def main(args):
     """
     Main function.
     @parameters : some arguments, in case of use.
     @return : 0 = all was good.
               ... = some problem occures.
     """
-    # check_args()
-    # config ... <- Use Class()
+#    conf = config.Config([c[0] for c in args.items() if c[1]])
+
+    try:
+        conf = config.Config([c[0] for c in args.items() if c[1]])
+    except BaseException as e:
+        print("\n{}".format(e))
+        return 1
+
     # verif_3rd_part_prg()
     # verif_exec_other_paths()
     # check_man_help ... <- Use Class()
@@ -36,6 +44,7 @@ def main(arg):
 ######################
 
 if __name__ == "__main__":
-    rc = main(sys.argv[1:])      # Keep only the argus after the script name.
-    sys.exit(0)
+    args = docopt.docopt(infos.HOWTO, help=True)
+    rc = main(args)      # Keep only the argus after the script name.
+    sys.exit(rc)
 
