@@ -22,8 +22,6 @@ def ask_info(file):
     @parameters : file = the file.
     @return : the whatis parsed.
     """
-#        print("Info about {}".format(file))
-
     try:
         info_str = subprocess.check_output(['whatis', '-l', '-s', '1:4:5:6:7:8:9', file],
                                            stderr=subprocess.STDOUT)\

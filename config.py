@@ -54,11 +54,6 @@ class Config():
 
         self.__exists_full_prog_conf_dir = os.path.exists(self.__config_dir + self.__nctmenu_dir + self.__bins_list_file)
 
-        # TODO: A placer dans __create_conf après MaP.
-        self.__x_bins = sorted([f for f in scans.scan_for_X_binfiles()])
-        print(self.__x_bins)
-        # ############################################
-
         if not self.__exists_full_prog_conf_dir or "--reconf" in args:
             # On refait la config à 0
             self.__paths_to_scan = ['/bin', '/usr/bin', '/usr/local/bin', '/opt'] # By default.
@@ -70,7 +65,8 @@ class Config():
             if not self.__recovering_conf(self.__config_dir + self.__nctmenu_dir):
                 raise FileNotFoundError("\n!!! {} has been unexpectly deleted! !!!\n".format(self.__bins_list_file))
 
-        printthis("self.__config_dir", self.__config_dir)
+        # NOTE: debug
+#        printthis("self.__config_dir", self.__config_dir)
 
     # Private methods.
 
@@ -87,6 +83,7 @@ class Config():
 
 #        r=input("Effacer {} et appuyer sur entrée".format(full_bins_list_files))
 
+        # NOTE: debug
         printthis("full_prog_conf_file", full_prog_conf_file)
         printthis("full_bins_list_files", full_bins_list_files)
 
@@ -96,6 +93,7 @@ class Config():
         except:
             return False
 
+        # NOTE: debug
 #        printthis("self.found_bins", self.found_bins)
 
         return True
@@ -132,6 +130,9 @@ class Config():
 
         if overwrite == 'y':
             print("Creating ...")
+
+            # Search for programs running inside X.
+            self.__x_bins = sorted([f for f in scans.scan_for_X_binfiles()])
 
             # 1st scans binary files in given paths.
             self.found_bins = c.OrderedDict([(k, '') for k in scans.scan_for_binfiles(self.__paths_to_scan)])

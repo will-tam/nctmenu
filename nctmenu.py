@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+from debug import *
 
 # Standard library import.
 import sys
@@ -26,9 +27,10 @@ def main(args):
               ... = some problem occures.
     """
 #    conf = config.Config([c[0] for c in args.items() if c[1]])
-
     try:
         conf = config.Config([c[0] for c in args.items() if c[1]])
+        # NOTE: debug
+#        printthis("conf.found_bins", conf.found_bins)
     except BaseException as e:
         print("\n{}".format(e))
         return 1

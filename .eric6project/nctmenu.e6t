@@ -1,16 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project nctmenu -->
-<!-- Saved: 2018-09-28, 23:51:18 -->
+<!-- Saved: 2018-09-29, 22:38:26 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
-  <Task priority="1" completed="False" type="1" uid="{4d8c376f-d0e2-4da3-bab1-091809a6c33e}">
-    <Summary>TODO: A placer dans __create_conf après MaP.</Summary>
+  <Task priority="1" completed="False" type="3" uid="{49066cc7-cb02-4464-9088-0138acffb2bc}">
+    <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-09-28, 23:43:37</Created>
+    <Created>2018-09-29, 22:27:13</Created>
+    <Resource>
+      <Filename>nctmenu.py</Filename>
+      <Linenumber>32</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="3" uid="{5a586c38-3c67-4179-a078-6ed21d1ca600}">
+    <Summary>NOTE: debug</Summary>
+    <Description></Description>
+    <Created>2018-09-29, 22:34:21</Created>
     <Resource>
       <Filename>config.py</Filename>
-      <Linenumber>57</Linenumber>
+      <Linenumber>68</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="3" uid="{5ef95516-aacb-4d9c-b830-f154deb53ae9}">
+    <Summary>NOTE: debug</Summary>
+    <Description></Description>
+    <Created>2018-09-29, 22:34:21</Created>
+    <Resource>
+      <Filename>config.py</Filename>
+      <Linenumber>86</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="3" uid="{4d1b3a63-40cb-480b-b458-36b1bc0e900a}">
+    <Summary>NOTE: debug</Summary>
+    <Description></Description>
+    <Created>2018-09-29, 22:34:21</Created>
+    <Resource>
+      <Filename>config.py</Filename>
+      <Linenumber>96</Linenumber>
     </Resource>
   </Task>
 </Tasks>

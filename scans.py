@@ -39,7 +39,7 @@ class Mlocate_emul():
         """
         self.__exists_locate = self.__existing_locate()
         if not self.__exists_locate:
-#            self.updatedb_emul()
+            self.updatedb_emul()
             self.locate_cmd = self.locate_emul
 
         else:
@@ -85,7 +85,7 @@ class Mlocate_emul():
                 yield ff
 
         except IOError:
-            print('updatedb.lst file not found !')
+            print('\n!! updatedb.lst file not found !!\n')
 
         except KeyboardInterrupt:
             return False
@@ -101,6 +101,7 @@ class Mlocate_emul():
             yield ff
 
 #        self.__found_files = subprocess.getoutput(cmd).splitlines()
+        # NOTE: debug
 #        printthis("self.__found_file", self.__found_files)
 
     def __existing_locate(self):
@@ -139,6 +140,7 @@ def scan_for_binfiles(paths):
     @parameters : paths = paths where to try to find binaries.
     @return : yield the binary.
     """
+        # NOTE: debug
 #        printthis("paths", paths)
     for path in paths:
         print("\tScanning", path)
@@ -155,17 +157,34 @@ def scan_for_binfiles(paths):
 def scan_for_X_binfiles():
     """
     Generator : scan binaries running under X, finding .desktop ones.
+    Use freedesktop.org spec.
     @parameters : none.
     @return : yield the binaries running under X.
     """
-    re_opt = re.compile('\s-+|\s%?')
+    re_term = re.compile(r'^terminal=true', re.MULTILINE | re.I)
+    re_exec = re.compile(r'(^exec=)(.*)', re.MULTILINE | re.I)
+    re_opt = re.compile(r'\s-+|\s%?')
+
+    def searchin(file):     # Faster than grep command.
+        with open(file, "rt") as f:
+            lines = f.read(-1)
+
+        if re_term.search(lines):
+            return False, ""
+
+        rst = re_exec.search(lines)
+        if rst:
+            return True, rst.group(2)
+
+        return False, ""
+
     mlocate_emul = Mlocate_emul()
-    print(mlocate_emul.locate_cmd)
+    # NOTE: debug
+#    printthis("mlocate_emul.locate_cmd", mlocate_emul.locate_cmd)
     for file in mlocate_emul.locate_cmd():
-        # FIXME: Faut pensez à rechercher aussi la ligne Terminal=true
-        cr, find = subprocess.getstatusoutput('grep -ie "^exec=" {}'.format(file))
-        if cr == 0:
-#            print(find, "=>", end="")
+        cr, find = searchin(file)
+
+        if cr and find:     # Beward of bad formated files.
             find = find.split('=').pop()
             find = re_opt.split(find)
             if find[0] in ['yes', 'true', 'false', 'sh', 'bash', 'ksh', 'csh']:
@@ -176,7 +195,6 @@ def scan_for_X_binfiles():
             find = find.strip("'")
             find = find.split('/').pop()
             yield find
-#            print(find)
 
 ######################
 
