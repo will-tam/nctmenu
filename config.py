@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from debug import *
+
 # Standard libraries import.
 import os
 import pickle
@@ -31,6 +33,8 @@ class Config():
 
         # __exists_full_prog_conf_dir = Existing config directory flag.
 
+        # __x_bins = binaries running under desktop.
+
     # Public methods.
 
     def __init__(self, args):
@@ -39,7 +43,8 @@ class Config():
         @parameters : args = the program arguments.
         @return : if something wrong, raise an OSError exception.
         """
-        self.found_bins = c.OrderedDict([('term', ''), ('X', '')])
+#        self.found_bins = c.OrderedDict([('term',c.OrderedDict()),('x',c.OrderedDict())])
+        self.found_bins = c.OrderedDict()
 
         self.__config_dir = os.path.expanduser("~") + os.sep + ".config" + os.sep
         self.__nctmenu_dir = PRGNAME + os.sep
@@ -48,6 +53,11 @@ class Config():
         self.__bins_list_file = "bins.list"
 
         self.__exists_full_prog_conf_dir = os.path.exists(self.__config_dir + self.__nctmenu_dir + self.__bins_list_file)
+
+        # TODO: A placer dans __create_conf après MaP.
+        self.__x_bins = sorted([f for f in scans.scan_for_X_binfiles()])
+        print(self.__x_bins)
+        # ############################################
 
         if not self.__exists_full_prog_conf_dir or "--reconf" in args:
             # On refait la config à 0
@@ -60,10 +70,7 @@ class Config():
             if not self.__recovering_conf(self.__config_dir + self.__nctmenu_dir):
                 raise FileNotFoundError("\n!!! {} has been unexpectly deleted! !!!\n".format(self.__bins_list_file))
 
-        print(self.__config_dir)
-
-        scans.scan_for_X_binfiles()     # TODO: A placer dans __create_conf après MaP.
-
+        printthis("self.__config_dir", self.__config_dir)
 
     # Private methods.
 
@@ -80,8 +87,8 @@ class Config():
 
 #        r=input("Effacer {} et appuyer sur entrée".format(full_bins_list_files))
 
-        print(full_prog_conf_file)
-        print(full_bins_list_files)
+        printthis("full_prog_conf_file", full_prog_conf_file)
+        printthis("full_bins_list_files", full_bins_list_files)
 
         try:
             with open(full_bins_list_files, "r+b") as f:
@@ -89,7 +96,7 @@ class Config():
         except:
             return False
 
-        print(self.found_bins)
+#        printthis("self.found_bins", self.found_bins)
 
         return True
 
@@ -131,6 +138,7 @@ class Config():
             # And order them.
             self.found_bins = c.OrderedDict(sorted(self.found_bins.items(), key=lambda t: t[0]))
 
+            # XFree or terminal program ?
             # Looking for informations about each binaries.
             l = len(self.found_bins)    # Prepare percentage.
             print("\n\tSearching informations about {} found files...\n".format(l), end='')
@@ -139,7 +147,10 @@ class Config():
             oldpercent = -1
 
             for binfile in self.found_bins.keys():
-                self.found_bins[binfile] = ask_info(binfile)
+
+                mode = 'x' if binfile.split('/').pop() in self.__x_bins else 'term'
+
+                self.found_bins[binfile] = (ask_info(binfile), mode)
                 percent = int(cpt / l * 100)
                 if percent > oldpercent and percent % 10 == 0:
                     print("\t{}%".format(percent))
@@ -148,6 +159,7 @@ class Config():
                 cpt += 1
 
             print("\t100%")
+
             # Save in file.
             with open(full_bins_list_files, "w+b") as f:
                 p = pickle.dump(self.found_bins, f)

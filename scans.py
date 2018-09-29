@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
+from debug import *
+
 # Standard libraries import.
 import os
 import subprocess
-# TODO: A enlever après MàP #############################
+import re
 import pickle
-# #######################################################
 
 # Third libraries import.
 
@@ -50,31 +51,28 @@ class Mlocate_emul():
         @parameters : none.
         @return : none.
         """
-        print("\nupdatedb or locate command not found. Suppose the package hasn't been installed.")
+        print("\nupdatedb or mlocate command not found. Suppose the package hasn't been installed.")
         print("\tUse emulation of updatedb/locate.")
-        print("\tScan disk to find .desktop. Please, waiiit.")
-
-        # TODO: Revenir à la recherche locate_real à partir de / après MaP
 
         config_dir = os.path.expanduser("~") + os.sep + ".config" + os.sep
         nctmenu_dir = "nctmenu" + os.sep
         tmp_list_nf = config_dir + nctmenu_dir + "updatedb.lst"
         if not os.path.exists(tmp_list_nf):
-            print("Recherche et enregistrement")
+            print("\tupdatedb.lst doesn't exist. Scan disk to find .desktop. Please, waiiit.")
             cmd = "find / \( -name *.desktop -o -name *.Desktop \) -exec echo 2>/dev/null {} \;"
             self.__found_files = subprocess.getoutput(cmd).splitlines()
 
             with open(tmp_list_nf, "w+b") as f:
                 pickle.dump(self.__found_files, f)
+        else:
+            print("\tupdatedb.lst allready exists. No scan needs, nice !")
 
     def locate_emul(self):
         """
         Generator : emulation of locate command.
         @parameters : none.
-        @return : yield a file name in .desktop. If something wrong, return False.
+        @return : yield a file name in .desktop. If something wrong, return nothing !
         """
-        print("\nlocate_emul()")
-
         config_dir = os.path.expanduser("~") + os.sep + ".config" + os.sep
         nctmenu_dir = "nctmenu" + os.sep
         tmp_list_nf = config_dir + nctmenu_dir + "updatedb.lst"
@@ -83,13 +81,14 @@ class Mlocate_emul():
             with open(tmp_list_nf, "r+b") as f:
                 self.__found_files = pickle.load(f)
 
-        except:
-            print('updatedb.lst file not found !')
-            return False
+            for ff in self.__found_files:
+                yield ff
 
-#        print(self.__found_files)
-        for ff in self.__found_files:
-            yield ff
+        except IOError:
+            print('updatedb.lst file not found !')
+
+        except KeyboardInterrupt:
+            return False
 
     def locate_real(self):
         """
@@ -97,13 +96,12 @@ class Mlocate_emul():
         @parameters : none.
         @return : yield a file name in .desktop.
         """
-        print("\nlocate_real()")
         cmd = "mlocate -i *.Desktop"
         for ff in subprocess.getoutput(cmd).splitlines():
             yield ff
 
 #        self.__found_files = subprocess.getoutput(cmd).splitlines()
-#        print(self.__found_files)
+#        printthis("self.__found_file", self.__found_files)
 
     def __existing_locate(self):
         """
@@ -111,18 +109,25 @@ class Mlocate_emul():
         @parameters : none.
         @return : True if exists.
         """
+
+        # TODO: Revenir à la recherche locate_real à partir de / après MaP
         return False    # TODO: À effacer après MaP.
 
         # Best universal way to know if a command exists. Maybe ?
         # Remember for shell >0 means NOK.
         if subprocess.getstatusoutput("whatis mlocate")[0]:
+            print("Sorry, no binary mlocate found !")
             return False
 
         if subprocess.getstatusoutput("whatis updatedb")[0]:
+            print("Sorry, no binary updatedb found !")
+            return False
+
+        if subprocess.getoutput('find /var/lib/mlocate -name mlocate.dbz'):
+            print("Sorry, no file mlocate.db found !")
             return False
 
         return True
-
 
     # Private methods.
 
@@ -132,9 +137,9 @@ def scan_for_binfiles(paths):
     """
     Generator : find binaries.
     @parameters : paths = paths where to try to find binaries.
-    @return : the binary.
+    @return : yield the binary.
     """
-#        print(paths)
+#        printthis("paths", paths)
     for path in paths:
         print("\tScanning", path)
         # fwalk help recipe.
@@ -147,15 +152,31 @@ def scan_for_binfiles(paths):
                 except:     # Problem with a file ? Don't care about !
                     continue
 
-
 def scan_for_X_binfiles():
     """
     Generator : scan binaries running under X, finding .desktop ones.
-    @parameters :
-    @return :
+    @parameters : none.
+    @return : yield the binaries running under X.
     """
+    re_opt = re.compile('\s-+|\s%?')
     mlocate_emul = Mlocate_emul()
-    mlocate_emul.locate_cmd()
+    print(mlocate_emul.locate_cmd)
+    for file in mlocate_emul.locate_cmd():
+        # FIXME: Faut pensez à rechercher aussi la ligne Terminal=true
+        cr, find = subprocess.getstatusoutput('grep -ie "^exec=" {}'.format(file))
+        if cr == 0:
+#            print(find, "=>", end="")
+            find = find.split('=').pop()
+            find = re_opt.split(find)
+            if find[0] in ['yes', 'true', 'false', 'sh', 'bash', 'ksh', 'csh']:
+                find = find.pop()
+            else:
+                find = find[0]
+            find = find.strip('"')
+            find = find.strip("'")
+            find = find.split('/').pop()
+            yield find
+#            print(find)
 
 ######################
 

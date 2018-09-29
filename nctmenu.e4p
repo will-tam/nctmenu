@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project nctmenu -->
-<!-- Saved: 2018-09-15, 00:32:31 -->
+<!-- Saved: 2018-09-28, 23:51:37 -->
 <!-- Copyright (C) 2018 Will_tam,  -->
 <Project version="5.1">
   <Language></Language>
@@ -17,6 +17,7 @@
     <Source>README.md</Source>
     <Source>TODO.md</Source>
     <Source>config.py</Source>
+    <Source>debug.py</Source>
     <Source>infos.py</Source>
     <Source>nctmenu.py</Source>
   </Sources>
