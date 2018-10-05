@@ -34,7 +34,7 @@ class Mlocate_emul():
     def __init__(self):
         """
         __init__ : initiate class
-        @parameters : ...
+        @parameters : none.
         @return : none.
         """
         self.__exists_locate = self.__existing_locate()

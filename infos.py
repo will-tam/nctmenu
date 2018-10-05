@@ -26,7 +26,8 @@ def ask_info(file):
         info_str = subprocess.check_output(['whatis', '-l', '-s', '1:4:5:6:7:8:9', file],
                                            stderr=subprocess.STDOUT)\
                                           .decode('UTF-8')              # No encoding=something before Python3.5
-        info_str = info_str.split("-")[1].strip()
+        info_str = info_str.split(" - ")[1].strip()
+        info_str = info_str[0].upper() + info_str[1:]
 
     except subprocess.CalledProcessError as e:
         info_str = ""
