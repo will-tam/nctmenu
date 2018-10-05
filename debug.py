@@ -1,5 +1,20 @@
+import curses
+
 DBG = True
 
-def printthis(what, val):
+def printthis(what, val, cwin=None, lin=0, col=0):
+    """
+    Display a given information.
+    @parameters : what = what to display.
+                  val = value to display.
+                  cwin = adrress of the curses window. None if normal term display.
+                  lin = line where to write.
+                  col = col where to write.
+    @return : none.
+    """
     if DBG :
-        print("\n**\n{} = {}\n**\n".format(what, val))
+        dbginfo = "\n**\n{} = {}\n**\n".format(what, val)
+        if cwin:
+            cwin.addstr(lin, col, dbginfo, curses.A_REVERSE)
+        else:
+            print(dbginfo)
