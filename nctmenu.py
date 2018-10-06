@@ -9,6 +9,7 @@ import os
 import argparse
 import hashlib
 import re
+import curses
 
 # Third-part library import.
 import docopt
@@ -16,6 +17,7 @@ import docopt
 # Project library import.
 import infos
 import config
+import ncdisplay
 
 ######################
 
@@ -35,11 +37,10 @@ def main(args):
         print("\n{}".format(e))
         return 1
 
-    # verif_3rd_part_prg()
-    # verif_exec_other_paths()
-    # check_man_help ... <- Use Class()
-    # check_gfx_version ... <- Use Class()
-    # display()
+    # NOTE: debug
+#    printthis("conf.found_bins", conf.found_bins)
+
+    curses.wrapper(ncdisplay.NCDisplay, conf)
 
     return 0
 
