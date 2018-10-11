@@ -2,15 +2,16 @@
 <!DOCTYPE Session SYSTEM "Session-5.0.dtd">
 <!-- eric6 session file for project nctmenu -->
 <!-- This file was generated automatically, do not edit. -->
-<!-- Saved: 2018-10-06, 09:59:12 -->
+<!-- Saved: 2018-10-12, 16:32:20 -->
 <Session version="5.0">
   <Filenames>
-    <Filename cline="40" cindex="5" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctmenu.py</Filename>
+    <Filename cline="38" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctmenu.py</Filename>
     <Filename cline="21" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/TODO.md</Filename>
     <Filename cline="16" cindex="16" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/debug.py</Filename>
-    <Filename cline="36" cindex="117" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/ncdisplay.py</Filename>
+    <Filename cline="4324" cindex="4" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/lbins.txt</Filename>
+    <Filename cline="115" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/ncdisplay.py</Filename>
   </Filenames>
-  <ActiveWindow cline="36" cindex="117">/home/will/data/programmation/python/nctmenu/ncdisplay.py</ActiveWindow>
+  <ActiveWindow cline="115" cindex="0">/home/will/data/programmation/python/nctmenu/ncdisplay.py</ActiveWindow>
   <Breakpoints/>
   <Watchexpressions/>
   <DebugInfo>

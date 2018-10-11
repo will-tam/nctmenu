@@ -40,6 +40,10 @@ def main(args):
     # NOTE: debug
 #    printthis("conf.found_bins", conf.found_bins)
 
+    # NOTE: debug
+#    for i, v in enumerate([k for k in conf.found_bins.keys()]):
+#        print("{} - {}".format(i, v))
+
     curses.wrapper(ncdisplay.NCDisplay, conf)
 
     return 0
