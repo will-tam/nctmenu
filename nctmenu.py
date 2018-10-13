@@ -17,7 +17,7 @@ import docopt
 # Project library import.
 import infos
 import config
-import ncdisplay
+import nctm_display
 
 ######################
 
@@ -44,7 +44,7 @@ def main(args):
 #    for i, v in enumerate([k for k in conf.found_bins.keys()]):
 #        print("{} - {}".format(i, v))
 
-    curses.wrapper(ncdisplay.NCDisplay, conf)
+    curses.wrapper(nctm_display.NCTM_Display, conf)
 
     return 0
 

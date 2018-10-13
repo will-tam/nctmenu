@@ -14,7 +14,7 @@ import config
 
 ######################
 
-class NCDisplay():
+class NCTM_Display():
     """
     Display with ncurse lib.
 
@@ -29,6 +29,10 @@ class NCDisplay():
     # __first_display_bin_index = index of the first binarie in list.
     # __underline_index = line to underline.
     # __maxitem = length of __bins_to_show list.
+    # __maxx = number max of col.
+    # __maxy = number max of line.
+    # __space_left = percentage of space to write bins' name.
+    # __space_right = percentage of space to write bin's help prevue.
     # __oldmaxy, __oldmaxx = size of window before resize it.
 
     __KEY_ESC = 27
@@ -73,9 +77,9 @@ class NCDisplay():
             curses.KEY_NPAGE : self.__keydown_pressed,
             curses.KEY_UP : self.__keyup_pressed,
             curses.KEY_PPAGE : self.__keyup_pressed,
-            self.__KEY_ENTER : None,
-            self.__KEY_h : None,
-            self.__KEY_H : None,
+            self.__KEY_ENTER : self.__keyENTER_pressed,
+            self.__KEY_h : self.__keyH_pressed,
+            self.__KEY_H : self.__keyH_pressed,
         }
 
         keypressed =""
@@ -107,7 +111,7 @@ class NCDisplay():
     # Private methods.
     def __keydown_pressed(self, key=None):
         """
-        Called if down or page down key pressed.
+        Called if down or page down key has been pressed.
         @parameters : key = which key has been pressed. None by default.
         @return : none.
         """
@@ -133,7 +137,7 @@ class NCDisplay():
 
     def __keyup_pressed(self, key=None):
         """
-        Called if up or page up key pressed.
+        Called if up or page up key has been pressed.
         @parameters : key = which key has been pressed. None by default.
         @return : none.
         """
@@ -157,8 +161,21 @@ class NCDisplay():
             self.__underline_index = old_underline_index
             self.__first_display_bin_index -= step
 
+    def __keyH_pressed(self):
+        """
+        Called if key 'h' or 'H' has been pressed.
+        @parameters : none.
+        @return : none.
+        """
+        pass
 
-    # TODO: Autres touches à partir d'ici.
+    def __keyENTER_pressed(self):
+        """
+        Called if enter key has been pressed.
+        @parameters : none.
+        @return : none.
+        """
+        pass
 
     def __make_cells_headers(self):
         """
