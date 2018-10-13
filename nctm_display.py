@@ -11,12 +11,13 @@ import curses
 # Projet modules import.
 from infos import PRGNAME, VERSION
 import config
+import nctm_help
 
 ######################
 
 class NCTM_Display():
     """
-    Display with ncurse lib.
+    Display menu with ncurse lib.
 
     Public attributes.
         mainwin = from curses stdscr. The main window.
@@ -47,6 +48,7 @@ class NCTM_Display():
         """
         __init__ : initiate class
         @parameters : stdscr = represents the whole screen.
+                      conf = the config address.
         @return : none.
         """
         self.mainwin= stdscr
@@ -64,11 +66,11 @@ class NCTM_Display():
 
         curses.resizeterm(self.__maxy, 80)   # TODO: À effacer après MaP. On ne force que la largeur du term.
 
-        self.run()
+        self.mainloop()
 
-    def run(self):
+    def mainloop(self):
         """
-        main loop.
+        Main loop.
         @parameters : none.
         @return : none.
         """
@@ -106,6 +108,7 @@ class NCTM_Display():
 
             self.mainwin.refresh()
             curses.doupdate()
+
             keypressed = self.mainwin.getch()
 
     # Private methods.
@@ -161,18 +164,20 @@ class NCTM_Display():
             self.__underline_index = old_underline_index
             self.__first_display_bin_index -= step
 
-    def __keyH_pressed(self):
+    def __keyH_pressed(self, key=None):
         """
         Called if key 'h' or 'H' has been pressed.
-        @parameters : none.
+        @parameters : key = which key has been pressed. None by default.
         @return : none.
         """
-        pass
+        full_path = self.__bins_to_show[self.__first_display_bin_index + self.__underline_index]
+        help = self.conf.found_bins[full_path][0]
+        nctm_help.NCTM_Help(full_path, help, self.__maxy, self.__maxx)
 
-    def __keyENTER_pressed(self):
+    def __keyENTER_pressed(self, key=None):
         """
         Called if enter key has been pressed.
-        @parameters : none.
+        @parameters : key = which key has been pressed. None by default.
         @return : none.
         """
         pass

@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import re
 import curses
+import subprocess
 
 # Third-part library import.
 import docopt
@@ -43,6 +44,12 @@ def main(args):
     # NOTE: debug
 #    for i, v in enumerate([k for k in conf.found_bins.keys()]):
 #        print("{} - {}".format(i, v))
+
+#    manpage = subprocess.check_output(['man', '/bin/ash'],
+#                                      stderr=subprocess.STDOUT).decode('UTF-8')
+#
+#    print(manpage)
+#    return 0
 
     curses.wrapper(nctm_display.NCTM_Display, conf)
 
