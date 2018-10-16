@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project nctmenu -->
-<!-- Saved: 2018-10-13, 23:40:33 -->
+<!-- Saved: 2018-10-16, 05:51:13 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
   <Task priority="1" completed="False" type="3" uid="{bc9297b3-d0ce-454a-b374-bf52a1a9e80b}">
@@ -29,51 +29,6 @@
     <Resource>
       <Filename>config.py</Filename>
       <Linenumber>96</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{f17a0898-c941-427f-ba08-7bf4a9aac933}">
-    <Summary>TODO: À effacer après MaP. On ne force que la largeur du term.</Summary>
-    <Description></Description>
-    <Created>2018-10-13, 22:37:12</Created>
-    <Resource>
-      <Filename>nctm_display.py</Filename>
-      <Linenumber>67</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{38af7d0f-c2d7-4130-9f57-d662718148e5}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-10-13, 22:37:12</Created>
-    <Resource>
-      <Filename>nctm_display.py</Filename>
-      <Linenumber>96</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{dfc616d0-b141-4678-9b97-3708a085fead}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-10-13, 22:37:12</Created>
-    <Resource>
-      <Filename>nctm_display.py</Filename>
-      <Linenumber>100</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{f131ae05-53d3-4725-a413-24c3d45c2682}">
-    <Summary>TODO: à changer de place ou faire autrement.</Summary>
-    <Description></Description>
-    <Created>2018-10-13, 22:37:12</Created>
-    <Resource>
-      <Filename>nctm_display.py</Filename>
-      <Linenumber>105</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{3cc6756c-5e10-49fc-9161-2884e8acce5a}">
-    <Summary>TODO: Calcul ou trouver astuce pour éviter le crash en cas de dépacement du nb de car sur fenêtre trop petite</Summary>
-    <Description></Description>
-    <Created>2018-10-13, 22:37:12</Created>
-    <Resource>
-      <Filename>nctm_display.py</Filename>
-      <Linenumber>264</Linenumber>
     </Resource>
   </Task>
   <Task priority="1" completed="False" type="3" uid="{06f33ed9-1372-4e45-bace-82ddaf25becd}">
@@ -121,31 +76,76 @@
       <Linenumber>182</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{4a69ca4c-592b-4e4b-af7f-d62dbf3a8650}">
+  <Task priority="1" completed="False" type="3" uid="{4f0fb639-1973-4216-b747-87800bdd3cbd}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-10-13, 23:39:08</Created>
+    <Created>2018-10-14, 23:00:15</Created>
     <Resource>
       <Filename>nctmenu.py</Filename>
-      <Linenumber>35</Linenumber>
+      <Linenumber>36</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{fb4e77e5-7152-4eff-aa02-a4f07cb77a31}">
+  <Task priority="1" completed="False" type="3" uid="{9d613da8-aab6-47c1-a9e5-b17f08367401}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-10-13, 23:39:08</Created>
+    <Created>2018-10-14, 23:00:15</Created>
     <Resource>
       <Filename>nctmenu.py</Filename>
-      <Linenumber>41</Linenumber>
+      <Linenumber>42</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{13f2c8ac-cac7-4592-873c-3c9273545af2}">
+  <Task priority="1" completed="False" type="3" uid="{f8a0acc8-8eb4-4333-af22-1d98430c98b9}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-10-13, 23:39:08</Created>
+    <Created>2018-10-14, 23:00:15</Created>
     <Resource>
       <Filename>nctmenu.py</Filename>
-      <Linenumber>44</Linenumber>
+      <Linenumber>45</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{15915adb-098e-4f0d-8710-67dcecd9012c}">
+    <Summary>TODO: À effacer après MaP. On ne force que la largeur du term.</Summary>
+    <Description></Description>
+    <Created>2018-10-15, 23:48:22</Created>
+    <Resource>
+      <Filename>nctm_display.py</Filename>
+      <Linenumber>67</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="3" uid="{b02d2ff8-3765-47f8-95f2-c53eb2056268}">
+    <Summary>NOTE: debug</Summary>
+    <Description></Description>
+    <Created>2018-10-15, 23:48:22</Created>
+    <Resource>
+      <Filename>nctm_display.py</Filename>
+      <Linenumber>96</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="3" uid="{28e52839-570a-4f39-8ede-3c34910618ac}">
+    <Summary>NOTE: debug</Summary>
+    <Description></Description>
+    <Created>2018-10-15, 23:48:22</Created>
+    <Resource>
+      <Filename>nctm_display.py</Filename>
+      <Linenumber>100</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{bf18cdb4-daa2-40d9-8b15-3b8e402be9c6}">
+    <Summary>TODO: à changer de place ou faire autrement.</Summary>
+    <Description></Description>
+    <Created>2018-10-15, 23:48:22</Created>
+    <Resource>
+      <Filename>nctm_display.py</Filename>
+      <Linenumber>105</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{ff4c2831-733f-432b-a2b2-d8fb192817b4}">
+    <Summary>TODO: Calcul ou trouver astuce pour éviter le crash en cas de dépacement du nb de car sur fenêtre trop petite</Summary>
+    <Description></Description>
+    <Created>2018-10-15, 23:48:22</Created>
+    <Resource>
+      <Filename>nctm_display.py</Filename>
+      <Linenumber>264</Linenumber>
     </Resource>
   </Task>
 </Tasks>

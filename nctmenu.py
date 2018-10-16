@@ -12,6 +12,7 @@ import re
 import curses
 import subprocess
 
+
 # Third-part library import.
 import docopt
 
@@ -45,12 +46,6 @@ def main(args):
 #    for i, v in enumerate([k for k in conf.found_bins.keys()]):
 #        print("{} - {}".format(i, v))
 
-#    manpage = subprocess.check_output(['man', '/bin/ash'],
-#                                      stderr=subprocess.STDOUT).decode('UTF-8')
-#
-#    print(manpage)
-#    return 0
-
     curses.wrapper(nctm_display.NCTM_Display, conf)
 
     return 0
@@ -61,4 +56,3 @@ if __name__ == "__main__":
     args = docopt.docopt(infos.HOWTO, help=True)
     rc = main(args)      # Keep only the argus after the script name.
     sys.exit(rc)
-

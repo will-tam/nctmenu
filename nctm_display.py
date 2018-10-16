@@ -64,7 +64,7 @@ class NCTM_Display():
 
         self.__maxy, self.__maxx = self.mainwin.getmaxyx()
 
-        curses.resizeterm(self.__maxy, 80)   # TODO: À effacer après MaP. On ne force que la largeur du term.
+#        curses.resizeterm(self.__maxy, 80)   # TODO: À effacer après MaP. On ne force que la largeur du term.
 
         self.mainloop()
 
