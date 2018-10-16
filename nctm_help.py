@@ -31,7 +31,7 @@ class NCTM_Help():
     #                            'nblines' : number of lines ,
     #                            'nbcols' : number of columns (caracters)}
 
-    __KEY_q = [ord('q'), ord('Q')]
+    __KEY_quit = [ord('q'), ord('Q')]
 
     # Public methods.
     def __init__(self, binpath, binhelp, maxy, maxx):
@@ -82,7 +82,7 @@ class NCTM_Help():
 
         keypressed =""
 
-        while keypressed not in self.__KEY_q:
+        while keypressed not in self.__KEY_quit:
 
             self.__manpage_display(0)
 
@@ -110,6 +110,18 @@ class NCTM_Help():
                                           stderr=subprocess.STDOUT).decode('UTF-8')
 
         content = content.splitlines()
+
+        # This follow because some of them wants to use you, some of them wants to be used by you ... no
+        # This follow because some manpage begins with '\n' caracters ! F**K !
+        content_tmp = list(content) # To create an other real variable, not a reference to.
+
+        for c in content:
+            if c == '':
+                content_tmp.pop(0)
+            else:
+                break
+
+        content = content_tmp
 
         self.__manpage = {'content' : content,
                           'nblines' : len(content) + 1,    # Number of lines in list is the length of manpage.
@@ -143,7 +155,6 @@ class NCTM_Help():
         """
         self.help_win.refresh(from_line, 0, 0, 0, self.__maxy - 1, self.__maxx - 1)
         curses.doupdate()
-
 
 ######################
 
