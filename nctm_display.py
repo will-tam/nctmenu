@@ -36,7 +36,7 @@ class NCTM_Display():
     # __space_right = percentage of space to write bin's help prevue.
     # __oldmaxy, __oldmaxx = size of window before resize it.
 
-    __KEY_ESC = 27
+    __KEY_QUIT = 27
     __KEY_ENTER = 10
     __KEY_h = ord('h')
     __KEY_H = ord('H')
@@ -88,7 +88,7 @@ class NCTM_Display():
 
         curses.curs_set(0)  # No carret visible.
 
-        while keypressed != self.__KEY_ESC:
+        while keypressed != self.__KEY_QUIT:
             # Window responsive.
             if self.mainwin.is_wintouched:      # Window resizing detection curses.
                 self.__updatemain()

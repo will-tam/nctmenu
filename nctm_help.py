@@ -25,13 +25,16 @@ class NCTM_Help():
     # Private attributes.
     # __maxy = maximum of lines.
     # __maxx = maximum of columns.
+    # __pmaxx = maximum of lines of the pan.
+    # __pmaxy = maximum of columns of the pan.
     # __binpath = the path of the binary.
     # __binhelp = the whatis of the binary.
+    # __first_line = first line to display in pad.
     # __manpage = dictinnary as {'content' : content of manpage,
     #                            'nblines' : number of lines ,
     #                            'nbcols' : number of columns (caracters)}
 
-    __KEY_quit = [ord('q'), ord('Q')]
+    __KEY_QUIT = [ord('q'), ord('Q')]
 
     # Public methods.
     def __init__(self, binpath, binhelp, maxy, maxx):
@@ -59,7 +62,9 @@ class NCTM_Help():
         self.__pmaxy = self.__maxy if self.__manpage['nblines'] < self.__maxy else self.__manpage['nblines']
         self.__pmaxx = self.__manpage['nbcols']
 
-        self.help_win = curses.newpad(self.__pmaxy, self.__pmaxx)
+        self.help_win = curses.newpad(self.__pmaxy, self.__pmaxx + 1)
+
+        self.help_win.keypad(1)
 
         self.__fill_pad(not(self.__binhelp))
 
@@ -73,22 +78,66 @@ class NCTM_Help():
         @parameters : none.
         @return : none.
         """
-#        callback = {
-#            curses.KEY_DOWN : self.__keydown_pressed,
-#            curses.KEY_NPAGE : self.__keydown_pressed,
-#            curses.KEY_UP : self.__keyup_pressed,
-#            curses.KEY_PPAGE : self.__keyup_pressed
-#        }
+        callback = {
+            curses.KEY_DOWN : self.__keydown_pressed,
+            curses.KEY_NPAGE : self.__keydown_pressed,
+            curses.KEY_UP : self.__keyup_pressed,
+            curses.KEY_PPAGE : self.__keyup_pressed
+        }
 
         keypressed =""
 
-        while keypressed not in self.__KEY_quit:
+        self.__first_line = 0
 
-            self.__manpage_display(0)
+        while keypressed not in self.__KEY_QUIT:
+            # TODO: Window responsive.
+
+            # NOTE: debug
+#            printthis("keypressed", keypressed, 0, 0)
+
+            if keypressed in callback.keys():
+                # NOTE: debug
+                callback[keypressed](keypressed)
+
+            self.__manpage_display(self.__first_line)
 
             keypressed = self.help_win.getch()
 
     # Private methods.
+    def __keydown_pressed(self, key=None):
+        """
+        Called if down or page down key has been pressed.
+        @parameters : key = which key has been pressed. None by default.
+        @return : none.
+        """
+        old_firt_line = self.__first_line
+
+        if key == curses.KEY_NPAGE:
+            step = self.__maxy - 2
+
+        else:
+            step = 1
+
+        if self.__first_line + step < self.__pmaxy - 1:
+##            self.__first_line = old_firt_line
+            self.__first_line += step
+
+#            self.__first_line += step
+
+    def __keyup_pressed(self, key=None):
+        """
+        Called if down or page down key has been pressed.
+        @parameters : key = which key has been pressed. None by default.
+        @return : none.
+        """
+        if key == curses.KEY_PPAGE:
+            step = self.__maxy - 2
+
+        else:       # Normal arrow key.
+            step = 1
+
+        self.__first_line -= 1
+
     def __no_manpage_found(self):
         """
         Even if no manpage found, something to display.

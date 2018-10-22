@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project nctmenu -->
-<!-- Saved: 2018-10-01, 07:08:13 -->
+<!-- Saved: 2018-10-22, 23:26:47 -->
 <!-- Copyright (C) 2018 Will_tam,  -->
 <Project version="5.1">
   <Language></Language>
@@ -19,7 +19,7 @@
     <Source>config.py</Source>
     <Source>debug.py</Source>
     <Source>infos.py</Source>
-    <Source>ncdisplay.py</Source>
+    <Source>nctm_display.py</Source>
     <Source>nctmenu.py</Source>
     <Source>scans.py</Source>
   </Sources>
