@@ -2,16 +2,16 @@
 <!DOCTYPE Session SYSTEM "Session-5.0.dtd">
 <!-- eric6 session file for project nctmenu -->
 <!-- This file was generated automatically, do not edit. -->
-<!-- Saved: 2018-10-22, 23:26:50 -->
+<!-- Saved: 2018-10-27, 18:15:12 -->
 <Session version="5.0">
   <Filenames>
-    <Filename cline="49" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctmenu.py</Filename>
+    <Filename cline="35" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctmenu.py</Filename>
     <Filename cline="21" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/TODO.md</Filename>
-    <Filename cline="29" cindex="51" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/debug.py</Filename>
-    <Filename cline="116" cindex="52" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_display.py</Filename>
-    <Filename cline="122" cindex="34" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_help.py</Filename>
+    <Filename cline="22" cindex="14" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/debug.py</Filename>
+    <Filename cline="139" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_display.py</Filename>
+    <Filename cline="104" cindex="26" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_help.py</Filename>
   </Filenames>
-  <ActiveWindow cline="122" cindex="34">/home/will/data/programmation/python/nctmenu/nctm_help.py</ActiveWindow>
+  <ActiveWindow cline="104" cindex="26">/home/will/data/programmation/python/nctmenu/nctm_help.py</ActiveWindow>
   <Breakpoints/>
   <Watchexpressions/>
   <DebugInfo>

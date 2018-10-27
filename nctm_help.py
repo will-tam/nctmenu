@@ -92,11 +92,7 @@ class NCTM_Help():
         while keypressed not in self.__KEY_QUIT:
             # TODO: Window responsive.
 
-            # NOTE: debug
-#            printthis("keypressed", keypressed, 0, 0)
-
             if keypressed in callback.keys():
-                # NOTE: debug
                 callback[keypressed](keypressed)
 
             self.__manpage_display(self.__first_line)
@@ -110,19 +106,16 @@ class NCTM_Help():
         @parameters : key = which key has been pressed. None by default.
         @return : none.
         """
-        old_firt_line = self.__first_line
-
         if key == curses.KEY_NPAGE:
             step = self.__maxy - 2
 
-        else:
+        else:               # Normal arrow key.
             step = 1
 
-        if self.__first_line + step < self.__pmaxy - 1:
-##            self.__first_line = old_firt_line
-            self.__first_line += step
+        self.__first_line += step
 
-#            self.__first_line += step
+        if self.__pmaxy - self.__first_line < self.__maxy:
+            self.__first_line = self.__pmaxy - self.__maxy
 
     def __keyup_pressed(self, key=None):
         """
@@ -136,7 +129,10 @@ class NCTM_Help():
         else:       # Normal arrow key.
             step = 1
 
-        self.__first_line -= 1
+        self.__first_line -= step
+
+        if self.__first_line < 0:
+            self.__first_line = 0
 
     def __no_manpage_found(self):
         """
