@@ -23,6 +23,7 @@ class NCTM_Help():
     """
 
     # Private attributes.
+    # __main_win = parent window.
     # __maxy = maximum of lines.
     # __maxx = maximum of columns.
     # __pmaxx = maximum of lines of the pan.
@@ -37,7 +38,7 @@ class NCTM_Help():
     __KEY_QUIT = [ord('q'), ord('Q')]
 
     # Public methods.
-    def __init__(self, binpath, binhelp, maxy, maxx):
+    def __init__(self, main_win, binpath, binhelp, maxy, maxx):
         """
         __init__ : initiate class
         @parameters : binpath = the full path of the binary.
@@ -49,6 +50,7 @@ class NCTM_Help():
         self.__binhelp = binhelp
         self.__binpath = binpath
 
+        self.__main_win = main_win
         self.__maxx = maxx
         self.__maxy = maxy
 
@@ -90,7 +92,8 @@ class NCTM_Help():
         self.__first_line = 0
 
         while keypressed not in self.__KEY_QUIT:
-            # TODO: Window responsive.
+            if self.__main_win.is_wintouched:      # Window resizing detection curses.
+                self.__updatehelp()
 
             if keypressed in callback.keys():
                 callback[keypressed](keypressed)
@@ -172,6 +175,15 @@ class NCTM_Help():
                           'nblines' : len(content) + 1,    # Number of lines in list is the length of manpage.
                           'nbcols' : len(content[0]) + 3}  # First line of manpage give the width.
 
+    def __updatehelp(self):
+        """
+        Update to refresh main window.
+        @parameters : none.
+        @return : none.
+        """
+        self.__main_win.clear()
+        self.__maxy, self.__maxx = self.__main_win.getmaxyx()
+
     def __fill_pad(self, one_line):
         """
         Fill the pad with manpage.
@@ -198,7 +210,11 @@ class NCTM_Help():
         @parameters : from_line = line from where to begin.
         @return : none.
         """
-        self.help_win.refresh(from_line, 0, 0, 0, self.__maxy - 1, self.__maxx - 1)
+        try:
+            self.help_win.refresh(from_line, 0, 0, 0, self.__maxy - 1, self.__maxx - 1)
+        except:
+            pass
+
         curses.doupdate()
 
 ######################

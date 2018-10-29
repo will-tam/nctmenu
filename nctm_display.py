@@ -20,7 +20,7 @@ class NCTM_Display():
     Display menu with ncurse lib.
 
     Public attributes.
-        mainwin = from curses stdscr. The main window.
+        main_win = from curses stdscr. The main window.
         conf = the config class address.
     """
 
@@ -51,7 +51,7 @@ class NCTM_Display():
                       conf = the config address.
         @return : none.
         """
-        self.mainwin= stdscr
+        self.main_win= stdscr
         self.conf = conf
 
         self.__bins_to_show = [k for k in self.conf.found_bins.keys()]
@@ -62,7 +62,7 @@ class NCTM_Display():
 
         self.__oldmaxy, self.__oldmaxx = (0, 0)
 
-        self.__maxy, self.__maxx = self.mainwin.getmaxyx()
+        self.__maxy, self.__maxx = self.main_win.getmaxyx()
 
 #        curses.resizeterm(self.__maxy, 80)   # TODO: À effacer après MaP. On ne force que la largeur du term.
 
@@ -90,26 +90,26 @@ class NCTM_Display():
 
         while keypressed != self.__KEY_QUIT:
             # Window responsive.
-            if self.mainwin.is_wintouched:      # Window resizing detection curses.
+            if self.main_win.is_wintouched:      # Window resizing detection curses.
                 self.__updatemain()
 
             # NOTE: debug
-#            printthis("keypressed", "{}".format(keypressed), self.mainwin, 3, 1, )
+#            printthis("keypressed", "{}".format(keypressed), self.main_win, 3, 1, )
 
             if keypressed in callback.keys():
                 # NOTE: debug
-#                printthis("Inside", "{0} - {1}".format(keypressed, callback[keypressed]), self.mainwin, 7, 1)
+#                printthis("Inside", "{0} - {1}".format(keypressed, callback[keypressed]), self.main_win, 7, 1)
                 callback[keypressed](keypressed)
                 self.__updatedata()
 
             # TODO: à changer de place ou faire autrement.
             info = "{0}/{1}".format(self.__bins_list_index + 1, self.__maxitem)
-            self.mainwin.addstr(0, 0, info, curses.A_BOLD)
+            self.main_win.addstr(0, 0, info, curses.A_BOLD)
 
-            self.mainwin.refresh()
+            self.main_win.refresh()
             curses.doupdate()
 
-            keypressed = self.mainwin.getch()
+            keypressed = self.main_win.getch()
 
     # Private methods.
     def __keydown_pressed(self, key=None):
@@ -172,7 +172,9 @@ class NCTM_Display():
         """
         full_path = self.__bins_to_show[self.__first_display_bin_index + self.__underline_index]
         help = self.conf.found_bins[full_path][0]
-        nctm_help.NCTM_Help(full_path, help, self.__maxy, self.__maxx)
+        nctm_help.NCTM_Help(self.main_win, full_path, help, self.__maxy, self.__maxx)
+
+        self.__updatemain()     # Init again if any changes while help window displaying.
 
     def __keyENTER_pressed(self, key=None):
         """
@@ -205,9 +207,9 @@ class NCTM_Display():
         header += self.__sep + whatis + (self.__space_right - len_whatis - 1)*" "
         header += self.__sep + termonly
 
-        self.mainwin.addstr(1, 1, header)
+        self.main_win.addstr(1, 1, header)
 
-        self.mainwin.addstr(2, 1, (self.__maxx - 2)*"-")
+        self.main_win.addstr(2, 1, (self.__maxx - 2)*"-")
 
     def __updatedata(self):
         """
@@ -235,10 +237,10 @@ class NCTM_Display():
             else:
                 infos = (self.__maxx - 2)*" "
 
-            self.mainwin.addstr(lin, 1, infos)
+            self.main_win.addstr(lin, 1, infos)
 
             line_to_show = (self.__underline_index + 3)
-            self.mainwin.chgat(line_to_show, 1, self.__maxx - 2, curses.A_REVERSE)
+            self.main_win.chgat(line_to_show, 1, self.__maxx - 2, curses.A_REVERSE)
 
     def __updatemain(self):
         """
@@ -246,11 +248,11 @@ class NCTM_Display():
         @parameters : none.
         @return : none.
         """
-        self.mainwin.clear()
+        self.main_win.clear()
 
-        self.__maxy, self.__maxx = self.mainwin.getmaxyx()
+        self.__maxy, self.__maxx = self.main_win.getmaxyx()
 
-        self.mainwin.box()
+        self.main_win.box()
 
         title = "{0} - {1}".format(PRGNAME, VERSION)[:self.__maxx]
         statusbar = "(P)UP/(P)DOWN arrows : navigate - H : more help - ENTER : run - ESC : exit"
@@ -267,10 +269,10 @@ class NCTM_Display():
 #        statusbar = statusbar[:self.__maxx - sb_middlex]
 
         try:
-            self.mainwin.addstr(0, title_middlex, title)
-            self.mainwin.addstr(self.__maxy - 1, sb_middlex, statusbar)
+            self.main_win.addstr(0, title_middlex, title)
+            self.main_win.addstr(self.__maxy - 1, sb_middlex, statusbar)
         except:
-            self.mainwin.addstr(self.__maxy - 1, 1, "80X50 at least")
+            self.main_win.addstr(self.__maxy - 1, 1, "80X50 at least")
 
         self.__make_cells_headers()
         self.__updatedata()
