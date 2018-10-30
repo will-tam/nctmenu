@@ -8,9 +8,8 @@ Usage:
 
 Options:
     -h, --help      This help.
-    -r, --reconf    Recreate configuration file (ask scan executable directories,
-                                                 then scan given directories).
-    -d, --dummy     Dummy option.
+    -r, --rescan    Recreate scanning files (ask scan executable directories,
+                                             then scan given directories).
 """
 
 

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+# TODO: Touche pour indiquer le chemin de l'exécutable.
+
 from debug import *
 
 # Standard libraries import.
@@ -63,8 +65,6 @@ class NCTM_Display():
         self.__oldmaxy, self.__oldmaxx = (0, 0)
 
         self.__maxy, self.__maxx = self.main_win.getmaxyx()
-
-#        curses.resizeterm(self.__maxy, 80)   # TODO: À effacer après MaP. On ne force que la largeur du term.
 
         self.mainloop()
 

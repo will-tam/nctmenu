@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+# TODO: Lire dans un fichier la config de nctmenu :
+#       - Les chemins de recherche d'éxecutables.
+#       - À voir.
+
 from debug import *
 
 # Standard libraries import.
@@ -35,6 +39,8 @@ class Config():
 
         # __x_bins = binaries running under desktop.
 
+    __DEFAULT = ['/bin', '/usr/bin', '/usr/local/bin', '/opt']
+
     # Public methods.
 
     def __init__(self, args):
@@ -54,37 +60,58 @@ class Config():
 
         self.__exists_full_prog_conf_dir = os.path.exists(self.__config_dir + self.__nctmenu_dir + self.__bins_list_file)
 
-        if not self.__exists_full_prog_conf_dir or "--reconf" in args:
-            # On refait la config à 0
-            self.__paths_to_scan = ['/bin', '/usr/bin', '/usr/local/bin', '/opt'] # By default.
+        if not self.__exists_full_prog_conf_dir or "--rescan" in args:
+            # Config from 0.
+            self.__paths_to_scan = self.__DEFAULT # By default.
             if not self.__create_conf(self.__config_dir + self.__nctmenu_dir):
                 raise FileNotFoundError("\n!!! Couldn't be created. Please check the parent directory rights or maybe already exists. !!!\n")
 
         if self.__exists_full_prog_conf_dir:
-            # On lit la config.
-            if not self.__recovering_conf(self.__config_dir + self.__nctmenu_dir):
+            # Read general config. and binaries list files.
+            if not self.__recovering_gen_conf(self.__config_dir + self.__nctmenu_dir):
+                raise FileNotFoundError("\n!!! {} has been unexpectly deleted! !!!\n".format(self.__prog_config_file))
+
+            if not self.__recovering_bins_list(self.__config_dir + self.__nctmenu_dir):
                 raise FileNotFoundError("\n!!! {} has been unexpectly deleted! !!!\n".format(self.__bins_list_file))
 
         # NOTE: debug
 #        printthis("self.__config_dir", self.__config_dir)
 
     # Private methods.
-
-    def __recovering_conf(self, conf_dir):
+    def __recovering_gen_conf(self, conf_dir):
         """
-        Recover the config.
+        Recover the general config.
         @parameters : conf_dir = directory where to create config's files.
         @return : True = all is ok.
         """
-        print("{} exists. Recovering ...".format(conf_dir))
+        print("{} exists. General conf. recovering ...".format(conf_dir))
 
         full_prog_conf_file = conf_dir + self.__prog_config_file
-        full_bins_list_files = conf_dir + self.__bins_list_file
-
-#        r=input("Effacer {} et appuyer sur entrée".format(full_bins_list_files))
 
         # NOTE: debug
         printthis("full_prog_conf_file", full_prog_conf_file)
+
+        try:
+            with open(full_prog_conf_file, "r+t") as f:
+                self.__paths_to_scan = [line.strip() for line in f if line.find('/') > -1]
+
+            print(self.__paths_to_scan)
+        except:
+            return False
+
+        return True
+
+    def __recovering_bins_list(self, conf_dir):
+        """
+        Recover the list of binairies.
+        @parameters : conf_dir = directory where to create config's files.
+        @return : True = all is ok.
+        """
+        print("{} exists. Binairies list recovering ...".format(conf_dir))
+
+        full_bins_list_files = conf_dir + self.__bins_list_file
+
+        # NOTE: debug
         printthis("full_bins_list_files", full_bins_list_files)
 
         try:
@@ -100,7 +127,7 @@ class Config():
 
     def __create_conf(self, conf_dir):
         """
-        Create config directory and files if not exist or --reconf arg has been given.
+        Create config directory and files if not exist or --rescan arg has been given.
         @parameters : conf_dir = directory where to create config's files.
         @result : True = all is ok.
         """
@@ -115,9 +142,15 @@ class Config():
         full_prog_conf_file = conf_dir + self.__prog_config_file
         full_bins_list_files = conf_dir + self.__bins_list_file
 
-#        if not os.path.exists(full_prog_conf_file):
-#            print("{} doesn't exists. Create ...".format(full_prog_conf_file))
-            # TODO : Remplir ce fichier de configuration si util. Sinon dégager tout ce qui s'y rapporte.
+        if not os.path.exists(full_prog_conf_file):
+            print("{} doesn't exists. Create ...".format(full_prog_conf_file))
+            with open(full_prog_conf_file, "w+t") as f:
+                f.write("# {} #\n\n".format(self.__prog_config_file))
+                f.write("# Default binaries paths -- Just add yours below with your lovely text editor #\n")
+                for def_conf in self.__DEFAULT:
+                    f.write("{}\n".format(def_conf))
+        else:
+            self.__recovering_gen_conf(conf_dir)  # To have binaries paths
 
         overwrite = "y"     # Overwrite by default.
 

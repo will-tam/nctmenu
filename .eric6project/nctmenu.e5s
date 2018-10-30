@@ -2,15 +2,17 @@
 <!DOCTYPE Session SYSTEM "Session-5.0.dtd">
 <!-- eric6 session file for project nctmenu -->
 <!-- This file was generated automatically, do not edit. -->
-<!-- Saved: 2018-10-29, 19:02:23 -->
+<!-- Saved: 2018-10-30, 22:16:54 -->
 <Session version="5.0">
   <Filenames>
     <Filename cline="35" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctmenu.py</Filename>
     <Filename cline="21" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/TODO.md</Filename>
     <Filename cline="22" cindex="14" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/debug.py</Filename>
-    <Filename cline="176" cindex="89" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_display.py</Filename>
+    <Filename cline="268" cindex="47" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_display.py</Filename>
+    <Filename cline="41" cindex="7" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/config.py</Filename>
+    <Filename cline="132" cindex="19" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/scans.py</Filename>
   </Filenames>
-  <ActiveWindow cline="176" cindex="89">/home/will/data/programmation/python/nctmenu/nctm_display.py</ActiveWindow>
+  <ActiveWindow cline="41" cindex="7">/home/will/data/programmation/python/nctmenu/config.py</ActiveWindow>
   <Breakpoints/>
   <Watchexpressions/>
   <DebugInfo>
@@ -29,15 +31,13 @@
   <ProjectBrowserStates>
     <ProjectBrowserState name="sources">
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/config.py</ExpandedItemName>
-      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/config.py@@18</ExpandedItemName>
+      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/config.py@@22</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/debug.py</ExpandedItemName>
-      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/infos.py</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_display.py</ExpandedItemName>
-      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_display.py@@18</ExpandedItemName>
+      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_display.py@@20</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctmenu.py</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/scans.py</ExpandedItemName>
-      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/scans.py@@19</ExpandedItemName>
-      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/scans.py@@157</ExpandedItemName>
+      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/scans.py@@21</ExpandedItemName>
     </ProjectBrowserState>
     <ProjectBrowserState name="forms"/>
     <ProjectBrowserState name="resources"/>

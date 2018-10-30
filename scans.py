@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+# TODO: !!! Même les lib sont découvertes car parfois éxécutables !!! Les enlever de la liste.
+
 from debug import *
 
 # Standard libraries import.
@@ -112,7 +114,7 @@ class Mlocate_emul():
         """
 
         # TODO: Revenir à la recherche locate_real à partir de / après MaP
-        return False    # TODO: À effacer après MaP.
+#        return False    # TODO: À effacer après MaP.
 
         # Best universal way to know if a command exists. Maybe ?
         # Remember for shell >0 means NOK.
@@ -140,8 +142,8 @@ def scan_for_binfiles(paths):
     @parameters : paths = paths where to try to find binaries.
     @return : yield the binary.
     """
-        # NOTE: debug
-#        printthis("paths", paths)
+    # NOTE: debug
+    printthis("paths", paths)
     for path in paths:
         print("\tScanning", path)
         # fwalk help recipe.
