@@ -37,11 +37,14 @@ class NCTM_Display():
     # __space_left = percentage of space to write bins' name.
     # __space_right = percentage of space to write bin's help prevue.
     # __oldmaxy, __oldmaxx = size of window before resize it.
+    # __len_programs = lenght of string "programs - "
 
     __KEY_QUIT = 27
     __KEY_ENTER = 10
-    __KEY_h = ord('h')
-    __KEY_H = ord('H')
+    __KEY_m = ord('m')
+    __KEY_M = ord('M')
+    __KEY_p = ord('p')
+    __KEY_P = ord('P')
 
     __sep = "|"
 
@@ -80,8 +83,10 @@ class NCTM_Display():
             curses.KEY_UP : self.__keyup_pressed,
             curses.KEY_PPAGE : self.__keyup_pressed,
             self.__KEY_ENTER : self.__keyENTER_pressed,
-            self.__KEY_h : self.__keyH_pressed,
-            self.__KEY_H : self.__keyH_pressed,
+            self.__KEY_m : self.__keyM_pressed,
+            self.__KEY_M : self.__keyM_pressed,
+            self.__KEY_p : self.__keyP_pressed,
+            self.__KEY_P : self.__keyP_pressed,
         }
 
         keypressed =""
@@ -164,7 +169,7 @@ class NCTM_Display():
             self.__underline_index = old_underline_index
             self.__first_display_bin_index -= step
 
-    def __keyH_pressed(self, key=None):
+    def __keyM_pressed(self, key=None):
         """
         Called if key 'h' or 'H' has been pressed.
         @parameters : key = which key has been pressed. None by default.
@@ -175,6 +180,16 @@ class NCTM_Display():
         nctm_help.NCTM_Help(self.main_win, full_path, help, self.__maxy, self.__maxx)
 
         self.__updatemain()     # Init again if any changes while help window displaying.
+
+    def __keyP_pressed(self, key=None):
+        """
+        Called if key 'p' or 'P' has been pressed.
+        @parameters : key = which key has been pressed. None by default.
+        @return : none.
+        """
+        full_path = self.__bins_to_show[self.__first_display_bin_index + self.__underline_index]
+        # Keep only the string before the last "/" and print it.
+        self.main_win.addstr(1, self.__len_programs + 1, full_path[:full_path.rfind('/')])
 
     def __keyENTER_pressed(self, key=None):
         """
@@ -191,11 +206,11 @@ class NCTM_Display():
         @return : none.
         """
         # Headers to display
-        programs = "Programs"
+        programs = "Programs - "
         whatis = "What is"
         termonly = "Term only"
 
-        len_programs = len(programs)
+        self.__len_programs = len(programs)
         len_whatis = len(whatis)
         len_termonly = len(termonly)
 
@@ -203,7 +218,7 @@ class NCTM_Display():
         self.__space_left = all_space_left * 40 // 100
         self.__space_right = all_space_left * 60 // 100
 
-        header = programs + (self.__space_left - len_programs)*" "
+        header = programs + (self.__space_left - self.__len_programs)*" "
         header += self.__sep + whatis + (self.__space_right - len_whatis - 1)*" "
         header += self.__sep + termonly
 
@@ -255,7 +270,7 @@ class NCTM_Display():
         self.main_win.box()
 
         title = "{0} - {1}".format(PRGNAME, VERSION)[:self.__maxx]
-        statusbar = "(P)UP/(P)DOWN arrows : navigate - H : more help - ENTER : run - ESC : exit"
+        statusbar = "(P)UP/(P)DOWN arrows : navigate - M : manpage - P : path - ENTER : run - ESC : exit"
 
         len_title = len(title)
         len_sb = len(statusbar)

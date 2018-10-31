@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# TODO: !!! Même les lib sont découvertes car parfois éxécutables !!! Les enlever de la liste.
+# TODO: !!! Même les lib ou graphiques sont découvertes car parfois éxécutables !!! Les enlever de la liste.
 
 from debug import *
 

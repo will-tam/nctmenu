@@ -2,17 +2,17 @@
 <!DOCTYPE Session SYSTEM "Session-5.0.dtd">
 <!-- eric6 session file for project nctmenu -->
 <!-- This file was generated automatically, do not edit. -->
-<!-- Saved: 2018-10-30, 22:16:54 -->
+<!-- Saved: 2018-10-31, 22:31:00 -->
 <Session version="5.0">
   <Filenames>
     <Filename cline="35" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctmenu.py</Filename>
     <Filename cline="21" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/TODO.md</Filename>
-    <Filename cline="22" cindex="14" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/debug.py</Filename>
-    <Filename cline="268" cindex="47" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_display.py</Filename>
+    <Filename cline="5" cindex="49" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/debug.py</Filename>
+    <Filename cline="190" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_display.py</Filename>
     <Filename cline="41" cindex="7" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/config.py</Filename>
-    <Filename cline="132" cindex="19" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/scans.py</Filename>
+    <Filename cline="2" cindex="39" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/scans.py</Filename>
   </Filenames>
-  <ActiveWindow cline="41" cindex="7">/home/will/data/programmation/python/nctmenu/config.py</ActiveWindow>
+  <ActiveWindow cline="2" cindex="39">/home/will/data/programmation/python/nctmenu/scans.py</ActiveWindow>
   <Breakpoints/>
   <Watchexpressions/>
   <DebugInfo>
@@ -35,7 +35,8 @@
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/debug.py</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_display.py</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_display.py@@20</ExpandedItemName>
-      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctmenu.py</ExpandedItemName>
+      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_help.py</ExpandedItemName>
+      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_help.py@@17</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/scans.py</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/scans.py@@21</ExpandedItemName>
     </ProjectBrowserState>
