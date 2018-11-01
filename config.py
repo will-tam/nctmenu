@@ -19,6 +19,24 @@ import scans
 
 ######################
 
+FORBID_EXT = ['so',
+              'a',
+              'dll',
+              'js',
+              'png',
+              'jpeg',
+              'jpg',
+              'gif',
+              'doc',
+              'docx'
+              'odt'
+              'odm',
+              'xls',
+              'xlsx',
+            ]
+
+######################
+
 class Config():
     """
     Class used to configure program, and to create config files.

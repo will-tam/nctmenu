@@ -37,7 +37,8 @@ class NCTM_Display():
     # __space_left = percentage of space to write bins' name.
     # __space_right = percentage of space to write bin's help prevue.
     # __oldmaxy, __oldmaxx = size of window before resize it.
-    # __len_programs = lenght of string "programs - "
+    # __len_programs = lenght of string "programs - ".
+    # __ext = regex compilation to find extensions (see pattern).
 
     __KEY_QUIT = 27
     __KEY_ENTER = 10
@@ -261,7 +262,7 @@ class NCTM_Display():
             else:
                 infos = (self.__maxx - 2)*" "
 
-            if curses.has_colors() and self.__falseBin(full_path):
+            if curses.has_colors() and self.__fakeBin(full_path):
                 self.main_win.attrset(curses.color_pair(1))
 
             self.main_win.addstr(lin, 1, infos)
@@ -307,19 +308,21 @@ class NCTM_Display():
 
         self.__oldmaxy, self.__oldmaxx = (self.__maxy, self.__maxx)
 
-    def __falseBin(self, file):
+    def __fakeBin(self, full_path):
         """
         Detect if the file shouldn't be a binary file.
         Typically a library, picture, ... file with executable UNIX ACL tag.
-        @parameters : none.
-        @return : True if the file shouldn't be a binary.
+        @parameters : full_path = the absolute path of binary.
+        @return : True if the file shouldn't be a binary (see FORBID_EXT in config module)
         """
-        falseBin = False
+        pieces_of_path = [e for e in full_path.split("/") if e] # Remove the "" element.
+        file = pieces_of_path.pop()     # Extract only file name.
+        ext = file.rsplit('.').pop()    # Extract extension.
 
-#        printthis("file", file, self.main_win, 0, 0)
+        if ext.lower() in config.FORBID_EXT:
+            return True
 
-
-        return falseBin
+        return False
 
 ######################
 

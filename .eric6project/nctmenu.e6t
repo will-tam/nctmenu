@@ -1,99 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project nctmenu -->
-<!-- Saved: 2018-11-01, 13:07:40 -->
+<!-- Saved: 2018-11-01, 18:36:59 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
-  <Task priority="1" completed="False" type="1" uid="{e57fdf5e-984e-459a-81ba-acdcaf272a91}">
-    <Summary>TODO: Lire dans un fichier la config de nctmenu :</Summary>
-    <Description></Description>
-    <Created>2018-11-01, 11:01:05</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>3</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{ae4dd564-386b-4e89-9f32-d72bff7fee91}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-01, 11:01:05</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>77</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{16db1283-de31-468f-a9dd-cc9702825870}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-01, 11:01:05</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>91</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{20271275-8ae0-4902-b05a-5e7f83b3c5b4}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-01, 11:01:05</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>114</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{377a6b6f-1087-4b2f-9f6a-f698312f13f9}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-01, 11:01:05</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>123</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{811a856c-ab7b-409d-97ce-a99a6b9d9c6b}">
-    <Summary>TODO: Lire dans un fichier la config de nctmenu :</Summary>
-    <Description></Description>
-    <Created>2018-11-01, 11:01:06</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>3</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{d3a554c9-b581-4a3e-8950-5032b1c05a94}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-01, 11:01:06</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>77</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{a1d5ea22-9f5f-40fa-a144-cd4f9b829210}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-01, 11:01:06</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>91</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{380e3e6a-adfe-4473-a76b-05d1a847ee2e}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-01, 11:01:06</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>114</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{301b5728-419b-48c6-955c-65945188d9b9}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-01, 11:01:06</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>123</Linenumber>
-    </Resource>
-  </Task>
   <Task priority="1" completed="False" type="3" uid="{1ac45204-113c-4dcd-b28f-67a34e92216d}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
@@ -166,58 +76,103 @@
       <Linenumber>45</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{a8d42407-e705-4e74-9e75-b6f29ac26ecc}">
+  <Task priority="1" completed="False" type="1" uid="{5827aa85-9e63-4412-b736-80e734f16a17}">
+    <Summary>TODO: Lire dans un fichier la config de nctmenu :</Summary>
+    <Description></Description>
+    <Created>2018-11-01, 18:34:27</Created>
+    <Resource>
+      <Filename>config.py</Filename>
+      <Linenumber>3</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="3" uid="{4f7ce8be-3642-4a75-932a-b8d399e1719f}">
+    <Summary>NOTE: debug</Summary>
+    <Description></Description>
+    <Created>2018-11-01, 18:34:27</Created>
+    <Resource>
+      <Filename>config.py</Filename>
+      <Linenumber>95</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="3" uid="{9ac90d3b-ba4a-4fe9-ab77-6ec213c7cbd5}">
+    <Summary>NOTE: debug</Summary>
+    <Description></Description>
+    <Created>2018-11-01, 18:34:27</Created>
+    <Resource>
+      <Filename>config.py</Filename>
+      <Linenumber>109</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="3" uid="{628f3f98-68c9-40de-a938-19172d09d6c6}">
+    <Summary>NOTE: debug</Summary>
+    <Description></Description>
+    <Created>2018-11-01, 18:34:27</Created>
+    <Resource>
+      <Filename>config.py</Filename>
+      <Linenumber>132</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="3" uid="{28c6faf6-32b8-474d-86ac-2eea6366fa74}">
+    <Summary>NOTE: debug</Summary>
+    <Description></Description>
+    <Created>2018-11-01, 18:34:27</Created>
+    <Resource>
+      <Filename>config.py</Filename>
+      <Linenumber>141</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{72ec7ab1-037b-4c36-a156-a400768c4fb7}">
     <Summary>TODO: Touche pour indiquer le chemin de l'exécutable -- Pb dans l'affichage du chemin (ex: /opt).</Summary>
     <Description></Description>
-    <Created>2018-11-01, 13:07:37</Created>
+    <Created>2018-11-01, 18:36:41</Created>
     <Resource>
       <Filename>nctm_display.py</Filename>
       <Linenumber>3</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{22b16a8f-bcbf-4e4e-a15d-f46544afec56}">
+  <Task priority="1" completed="False" type="1" uid="{69c7e032-20a5-46a8-a017-0fa4f0e06b84}">
     <Summary>TODO: Ennlever les non utilisées.</Summary>
     <Description></Description>
-    <Created>2018-11-01, 13:07:37</Created>
+    <Created>2018-11-01, 18:36:41</Created>
     <Resource>
       <Filename>nctm_display.py</Filename>
-      <Linenumber>72</Linenumber>
+      <Linenumber>73</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{81d6634b-268d-4447-bd7d-314bdae805ef}">
+  <Task priority="1" completed="False" type="3" uid="{f17b23c9-443b-4497-866e-1113afb89d25}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-11-01, 13:07:37</Created>
+    <Created>2018-11-01, 18:36:41</Created>
     <Resource>
       <Filename>nctm_display.py</Filename>
-      <Linenumber>110</Linenumber>
+      <Linenumber>111</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{2d9d5daf-cafb-402e-8b16-5618d7c71478}">
+  <Task priority="1" completed="False" type="3" uid="{4d9b8ee2-db98-4e1c-8828-6b79b7720ded}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-11-01, 13:07:37</Created>
+    <Created>2018-11-01, 18:36:41</Created>
     <Resource>
       <Filename>nctm_display.py</Filename>
-      <Linenumber>114</Linenumber>
+      <Linenumber>115</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{c6d5416b-40ff-43fb-a92c-bb6fdfdcc5e5}">
+  <Task priority="1" completed="False" type="1" uid="{d6b2278d-e563-4b4d-85dc-ef6af1d796d6}">
     <Summary>TODO: à changer de place ou faire autrement.</Summary>
     <Description></Description>
-    <Created>2018-11-01, 13:07:37</Created>
+    <Created>2018-11-01, 18:36:41</Created>
     <Resource>
       <Filename>nctm_display.py</Filename>
-      <Linenumber>119</Linenumber>
+      <Linenumber>120</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{4f0e640c-b2c7-4d72-ac2a-b76b64db3b16}">
+  <Task priority="1" completed="False" type="1" uid="{15f39db9-4958-46cb-b796-b1b9c53a327e}">
     <Summary>TODO: Calcul ou trouver astuce pour éviter le crash en cas de dépacement du nb de car sur fenêtre trop petite</Summary>
     <Description></Description>
-    <Created>2018-11-01, 13:07:37</Created>
+    <Created>2018-11-01, 18:36:41</Created>
     <Resource>
       <Filename>nctm_display.py</Filename>
-      <Linenumber>294</Linenumber>
+      <Linenumber>295</Linenumber>
     </Resource>
   </Task>
 </Tasks>
