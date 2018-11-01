@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# TODO: Touche pour indiquer le chemin de l'exécutable.
+# TODO: Touche pour indiquer le chemin de l'exécutable -- Pb dans l'affichage du chemin (ex: /opt).
 
 from debug import *
 
@@ -68,6 +68,15 @@ class NCTM_Display():
         self.__oldmaxy, self.__oldmaxx = (0, 0)
 
         self.__maxy, self.__maxx = self.main_win.getmaxyx()
+
+        if curses.has_colors():     # TODO: Ennlever les non utilisées.
+            curses.init_pair(1, curses.COLOR_RED, 0)
+            curses.init_pair(2, curses.COLOR_CYAN, 0)
+            curses.init_pair(3, curses.COLOR_GREEN, 0)
+            curses.init_pair(4, curses.COLOR_MAGENTA, 0)
+            curses.init_pair(5, curses.COLOR_BLUE, 0)
+            curses.init_pair(6, curses.COLOR_YELLOW, 0)
+            curses.init_pair(7, curses.COLOR_WHITE, 0)
 
         self.mainloop()
 
@@ -252,7 +261,11 @@ class NCTM_Display():
             else:
                 infos = (self.__maxx - 2)*" "
 
+            if curses.has_colors() and self.__falseBin(full_path):
+                self.main_win.attrset(curses.color_pair(1))
+
             self.main_win.addstr(lin, 1, infos)
+            self.main_win.attrset(0)
 
             line_to_show = (self.__underline_index + 3)
             self.main_win.chgat(line_to_show, 1, self.__maxx - 2, curses.A_REVERSE)
@@ -293,6 +306,20 @@ class NCTM_Display():
         self.__updatedata()
 
         self.__oldmaxy, self.__oldmaxx = (self.__maxy, self.__maxx)
+
+    def __falseBin(self, file):
+        """
+        Detect if the file shouldn't be a binary file.
+        Typically a library, picture, ... file with executable UNIX ACL tag.
+        @parameters : none.
+        @return : True if the file shouldn't be a binary.
+        """
+        falseBin = False
+
+#        printthis("file", file, self.main_win, 0, 0)
+
+
+        return falseBin
 
 ######################
 

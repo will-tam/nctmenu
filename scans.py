@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# TODO: !!! Même les lib ou graphiques sont découvertes car parfois éxécutables !!! Les enlever de la liste.
-
 from debug import *
 
 # Standard libraries import.
@@ -151,7 +149,7 @@ def scan_for_binfiles(paths):
             for file in files:
                 try:    # Maybe a file will raise a problem.
                     if os.stat(file, dir_fd=rootfd).st_mode & 0o111 == 0o111:  # UGO +x ?
-                        yield os.path.join(path, file)
+                        yield os.path.join(root, file)
 
                 except:     # Problem with a file ? Don't care about !
                     continue
