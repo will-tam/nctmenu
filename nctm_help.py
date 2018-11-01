@@ -35,7 +35,7 @@ class NCTM_Help():
     #                            'nblines' : number of lines ,
     #                            'nbcols' : number of columns (caracters)}
 
-    __KEY_QUIT = [ord('q'), ord('Q')]
+    __KEY_QUIT = 27
 
     # Public methods.
     def __init__(self, main_win, binpath, binhelp, maxy, maxx):
@@ -68,10 +68,6 @@ class NCTM_Help():
 
         self.help_win.keypad(1)
 
-        self.__fill_pad(not(self.__binhelp))
-
-        self.help_win.box()
-
         self.mainloop()
 
     def mainloop(self):
@@ -91,7 +87,7 @@ class NCTM_Help():
 
         self.__first_line = 0
 
-        while keypressed not in self.__KEY_QUIT:
+        while keypressed != self.__KEY_QUIT:
             if self.__main_win.is_wintouched:      # Window resizing detection curses.
                 self.__updatehelp()
 
@@ -182,7 +178,11 @@ class NCTM_Help():
         @return : none.
         """
         self.__main_win.clear()
+        self.help_win.clear()
         self.__maxy, self.__maxx = self.__main_win.getmaxyx()
+        self.help_win.box()
+        self.help_win.addstr(0, 1, "ESC : exit", curses.A_REVERSE)
+        self.__fill_pad(not(self.__binhelp))
 
     def __fill_pad(self, one_line):
         """

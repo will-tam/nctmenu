@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# TODO: Touche pour indiquer le chemin de l'exécutable -- Pb dans l'affichage du chemin (ex: /opt).
+# TODO: Chemin de l'éxécutable plus voyant.
 
 from debug import *
 
@@ -108,12 +108,7 @@ class NCTM_Display():
             if self.main_win.is_wintouched:      # Window resizing detection curses.
                 self.__updatemain()
 
-            # NOTE: debug
-#            printthis("keypressed", "{}".format(keypressed), self.main_win, 3, 1, )
-
             if keypressed in callback.keys():
-                # NOTE: debug
-#                printthis("Inside", "{0} - {1}".format(keypressed, callback[keypressed]), self.main_win, 7, 1)
                 callback[keypressed](keypressed)
                 self.__updatedata()
 
@@ -197,9 +192,17 @@ class NCTM_Display():
         @parameters : key = which key has been pressed. None by default.
         @return : none.
         """
+        if curses.has_colors():
+            self.main_win.attrset(curses.color_pair(2) | curses.A_BOLD | curses.A_REVERSE)
+
+        else:
+            self.main_win.attrset(curses.A_BOLD | curses.A_REVERSE)
+
         full_path = self.__bins_to_show[self.__first_display_bin_index + self.__underline_index]
         # Keep only the string before the last "/" and print it.
         self.main_win.addstr(1, self.__len_programs + 1, full_path[:full_path.rfind('/')])
+
+        self.main_win.attrset(0)
 
     def __keyENTER_pressed(self, key=None):
         """
@@ -262,8 +265,11 @@ class NCTM_Display():
             else:
                 infos = (self.__maxx - 2)*" "
 
-            if curses.has_colors() and self.__fakeBin(full_path):
-                self.main_win.attrset(curses.color_pair(1))
+            if self.__fakeBin(full_path):
+                if curses.has_colors():
+                    self.main_win.attrset(curses.color_pair(1))
+                else:
+                    self.main_win.attrset(curses.A_BOLD | curses.A_REVERSE | curses.A_BLINK)
 
             self.main_win.addstr(lin, 1, infos)
             self.main_win.attrset(0)

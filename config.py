@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# TODO: Lire dans un fichier la config de nctmenu :
-#       - Les chemins de recherche d'éxecutables.
-#       - À voir.
-
 from debug import *
 
 # Standard libraries import.
