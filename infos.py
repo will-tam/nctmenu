@@ -13,6 +13,9 @@ Options:
 """
 
 
+# FIXME: Problème si plusieurs whatis trouvés.
+
+
 import subprocess
 
 def ask_info(file):
@@ -22,9 +25,10 @@ def ask_info(file):
     @return : the whatis parsed.
     """
     try:
-        info_str = subprocess.check_output(['whatis', '-l', '-s', '1:4:5:6:7:8:9', file],
+        info_str = subprocess.check_output(['whatis', '-l', '-s', '1:6:8', file],
                                            stderr=subprocess.STDOUT)\
                                           .decode('UTF-8')              # No encoding=something before Python3.5
+        infoèstr = info_str.splitlines()
         info_str = info_str.split(" - ")[1].strip()
         info_str = info_str[0].upper() + info_str[1:]
 

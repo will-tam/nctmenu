@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# TODO: Chemin de l'éxécutable plus voyant.
-
 from debug import *
 
 # Standard libraries import.
@@ -37,9 +35,9 @@ class NCTM_Display():
     # __space_left = percentage of space to write bins' name.
     # __space_right = percentage of space to write bin's help prevue.
     # __oldmaxy, __oldmaxx = size of window before resize it.
-    # __len_programs = lenght of string "programs - ".
     # __ext = regex compilation to find extensions (see pattern).
 
+    # Keys definition values.
     __KEY_QUIT = 27
     __KEY_ENTER = 10
     __KEY_m = ord('m')
@@ -47,7 +45,18 @@ class NCTM_Display():
     __KEY_p = ord('p')
     __KEY_P = ord('P')
 
-    __sep = "|"
+    __sep = "|"     # Column separator.
+
+    # Headers to display.
+    __headers = {'programs' : "Programs - ",
+                 'whatis' : "Wath is",
+                 'termonly' : "Term only",
+    }
+    # And their length.
+    __hlen = {'programs' : len(__headers['programs']),
+              'whatis' : len(__headers['whatis']),
+              'termonly' : len(__headers['termonly']),
+    }
 
     # Public methods.
     def __init__(self, stdscr, conf):
@@ -70,14 +79,16 @@ class NCTM_Display():
 
         self.__maxy, self.__maxx = self.main_win.getmaxyx()
 
-        if curses.has_colors():     # TODO: Ennlever les non utilisées.
+        if curses.has_colors():
             curses.init_pair(1, curses.COLOR_RED, 0)
             curses.init_pair(2, curses.COLOR_CYAN, 0)
-            curses.init_pair(3, curses.COLOR_GREEN, 0)
-            curses.init_pair(4, curses.COLOR_MAGENTA, 0)
-            curses.init_pair(5, curses.COLOR_BLUE, 0)
-            curses.init_pair(6, curses.COLOR_YELLOW, 0)
-            curses.init_pair(7, curses.COLOR_WHITE, 0)
+            curses.init_pair(3, curses.COLOR_YELLOW, 0)
+#           TODO: Effacer les nom utiles.
+#            curses.init_pair(3, curses.COLOR_GREEN, 0)
+#            curses.init_pair(4, curses.COLOR_MAGENTA, 0)
+#            curses.init_pair(5, curses.COLOR_BLUE, 0)
+#            curses.init_pair(6, curses.COLOR_CYAN, 0)
+#            curses.init_pair(7, curses.COLOR_WHITE, 0)
 
         self.mainloop()
 
@@ -199,8 +210,9 @@ class NCTM_Display():
             self.main_win.attrset(curses.A_BOLD | curses.A_REVERSE)
 
         full_path = self.__bins_to_show[self.__first_display_bin_index + self.__underline_index]
+
         # Keep only the string before the last "/" and print it.
-        self.main_win.addstr(1, self.__len_programs + 1, full_path[:full_path.rfind('/')])
+        self.main_win.addstr(1, self.__hlen['programs'] + 1, full_path[:full_path.rfind('/')])
 
         self.main_win.attrset(0)
 
@@ -218,22 +230,13 @@ class NCTM_Display():
         @parameters : none.
         @return : none.
         """
-        # Headers to display
-        programs = "Programs - "
-        whatis = "What is"
-        termonly = "Term only"
-
-        self.__len_programs = len(programs)
-        len_whatis = len(whatis)
-        len_termonly = len(termonly)
-
-        all_space_left = self.__maxx - len_termonly - 3 # -2 (border) -1 separator.
+        all_space_left = self.__maxx - self.__hlen['termonly'] - 3 # -2 (border) -1 separator.
         self.__space_left = all_space_left * 40 // 100
         self.__space_right = all_space_left * 60 // 100
 
-        header = programs + (self.__space_left - self.__len_programs)*" "
-        header += self.__sep + whatis + (self.__space_right - len_whatis - 1)*" "
-        header += self.__sep + termonly
+        header = self.__headers['programs'] + (self.__space_left - self.__hlen['programs'])*" "
+        header += self.__sep + self.__headers['whatis'] + (self.__space_right - self.__hlen['whatis'] - 1)*" "
+        header += self.__sep + self.__headers['termonly']
 
         self.main_win.addstr(1, 1, header)
 
@@ -253,11 +256,11 @@ class NCTM_Display():
                 help = self.conf.found_bins[full_path][0][:self.__space_right - 2]
                 term = self.conf.found_bins[full_path][1]
 
-                bin_name = full_path[:self.__space_left - 2]
+                infos = full_path.split('/').pop()     # Could be on only one line, but
+                infos = infos[:self.__space_left - 2]  # doesn't clear code.
 
-                infos = "{0}".format(bin_name.split('/').pop())
                 infos += (self.__space_left - len(infos))*" " + self.__sep
-                infos += "{}".format(help)
+                infos += help
                 infos += (self.__space_right - len(help) - 1)*" " + self.__sep
                 infos += "Y" if term == "term" else "N"
                 infos += (self.__maxx  - len(infos) - 2)*" "
@@ -305,9 +308,15 @@ class NCTM_Display():
 
         try:
             self.main_win.addstr(0, title_middlex, title)
-            self.main_win.addstr(self.__maxy - 1, sb_middlex, statusbar)
+            self.main_win.addstr(self.__maxy - 1, sb_middlex, statusbar, curses.A_REVERSE)
         except:
+            if curses.has_colors():
+                self.main_win.attrset(curses.color_pair(3) | curses.A_REVERSE | curses.A_BOLD)
+            else:
+                self.main_win.attrset(curses.A_BOLD | curses.A_REVERSE | curses.A_BLINK)
+
             self.main_win.addstr(self.__maxy - 1, 1, "80X50 at least")
+            self.main_win.attrset(0)
 
         self.__make_cells_headers()
         self.__updatedata()
