@@ -1,268 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project nctmenu -->
-<!-- Saved: 2018-11-19, 21:57:52 -->
+<!-- Saved: 2018-11-24, 19:52:58 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
-  <Task priority="1" completed="False" type="3" uid="{b166975c-b839-4be7-a453-993d271549be}">
+  <Task priority="1" completed="False" type="3" uid="{0573a1b8-75fe-4e01-8f4e-1fc3333bffd7}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-11-09, 21:24:43</Created>
-    <Resource>
-      <Filename>nctmenu.py</Filename>
-      <Linenumber>36</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{c7a1d771-6302-4d57-9a91-e647ef6730ec}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-09, 21:24:43</Created>
-    <Resource>
-      <Filename>nctmenu.py</Filename>
-      <Linenumber>42</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{d4b7bdcd-9a80-432d-b080-3a794820a439}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-09, 21:24:43</Created>
-    <Resource>
-      <Filename>nctmenu.py</Filename>
-      <Linenumber>45</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{059b88e6-1255-4db4-8fbf-b1d7e741b87e}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
+    <Created>2018-11-24, 19:22:53</Created>
     <Resource>
       <Filename>config.py</Filename>
       <Linenumber>91</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{b3c42346-595e-40e7-9365-49dcbc84430f}">
+  <Task priority="1" completed="False" type="3" uid="{78b48b2a-d9a0-4cfe-be96-66efe88e9891}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
+    <Created>2018-11-24, 19:22:53</Created>
     <Resource>
       <Filename>config.py</Filename>
       <Linenumber>105</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{be981fc9-bc6a-48da-b7a0-6a7c3ccf55ca}">
+  <Task priority="1" completed="False" type="3" uid="{cb11afc2-2aa0-4243-aaef-1d9e01f3dfef}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
+    <Created>2018-11-24, 19:22:53</Created>
     <Resource>
       <Filename>config.py</Filename>
       <Linenumber>128</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{1df6e873-5421-4754-aebe-39f71de0dfea}">
+  <Task priority="1" completed="False" type="3" uid="{b376a208-d5d3-4b9c-873c-abed2130b4d2}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
+    <Created>2018-11-24, 19:22:53</Created>
     <Resource>
       <Filename>config.py</Filename>
       <Linenumber>137</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{5667a718-85b2-4db9-af84-6075676e0b14}">
+  <Task priority="1" completed="False" type="3" uid="{76ffb680-a2ed-48ff-aad5-35851ec498c8}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
-    <Resource>
-      <Filename>scans.py</Filename>
-      <Linenumber>104</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{8367bd64-b4e8-4d62-8a83-4b85acf00550}">
-    <Summary>TODO: Revenir à la recherche locate_real à partir de / après MaP</Summary>
-    <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
-    <Resource>
-      <Filename>scans.py</Filename>
-      <Linenumber>114</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{131076d4-479d-40c2-b90d-c23fee8de901}">
-    <Summary>TODO: À effacer après MaP.</Summary>
-    <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
-    <Resource>
-      <Filename>scans.py</Filename>
-      <Linenumber>115</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{0e0030ab-5dd4-491a-88c9-c4222ce755e4}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
-    <Resource>
-      <Filename>scans.py</Filename>
-      <Linenumber>143</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{b62f5cae-d4ef-4d09-96db-54b053b94e78}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
-    <Resource>
-      <Filename>scans.py</Filename>
-      <Linenumber>182</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{1867df59-4684-4afb-8841-3d8a1d15be61}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>91</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{9776636a-110c-414c-ad80-1a6078584c72}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>105</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{b772fb05-c9bf-411a-8f80-e82ee91d5b7b}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>128</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{d116a2c8-8ebb-4269-b57b-fa6561a79179}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
-    <Resource>
-      <Filename>config.py</Filename>
-      <Linenumber>137</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{9ae4f6cb-1bf7-4281-9c41-e9b8a0ead56a}">
-    <Summary>NOTE: debug</Summary>
-    <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
+    <Created>2018-11-24, 19:51:23</Created>
     <Resource>
       <Filename>nctmenu.py</Filename>
       <Linenumber>36</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{05ac5c0e-bd1c-4710-8c8d-afe1c0dc98bc}">
+  <Task priority="1" completed="False" type="3" uid="{e73ba538-9739-487f-8579-6a77f40709f9}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
+    <Created>2018-11-24, 19:51:23</Created>
     <Resource>
       <Filename>nctmenu.py</Filename>
       <Linenumber>42</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{97c3cf08-21b1-433c-aa5b-4e65dbab72da}">
+  <Task priority="1" completed="False" type="3" uid="{05eb9d57-fb0e-45da-bda0-af8593e7d4b7}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
+    <Created>2018-11-24, 19:51:23</Created>
     <Resource>
       <Filename>nctmenu.py</Filename>
       <Linenumber>45</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{dcf36d55-80be-410f-abd7-aa277248cf09}">
+  <Task priority="1" completed="False" type="3" uid="{628069bb-a6c3-48a0-80eb-1dafe1fe50d4}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
+    <Created>2018-11-24, 19:51:46</Created>
     <Resource>
       <Filename>scans.py</Filename>
       <Linenumber>104</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{097c36a5-3f5f-46a4-8a8d-8c1cc747ab43}">
+  <Task priority="1" completed="False" type="1" uid="{35d848f1-0b0e-4973-a210-45824240ab91}">
     <Summary>TODO: Revenir à la recherche locate_real à partir de / après MaP</Summary>
     <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
+    <Created>2018-11-24, 19:51:46</Created>
     <Resource>
       <Filename>scans.py</Filename>
       <Linenumber>114</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{5d4eb353-c10b-46f6-b0d8-a50e70cc5c32}">
+  <Task priority="1" completed="False" type="1" uid="{f10c603e-4591-4f10-a740-26e31dc44166}">
     <Summary>TODO: À effacer après MaP.</Summary>
     <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
+    <Created>2018-11-24, 19:51:46</Created>
     <Resource>
       <Filename>scans.py</Filename>
       <Linenumber>115</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{579e3aab-a5ea-43bf-9ef3-36a99882fcc9}">
+  <Task priority="1" completed="False" type="3" uid="{feec6aba-0b4e-43b3-9c5e-752a1a721278}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
+    <Created>2018-11-24, 19:51:46</Created>
     <Resource>
       <Filename>scans.py</Filename>
       <Linenumber>143</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{0686d7ae-850b-4578-92b1-1d75fb1ea259}">
+  <Task priority="1" completed="False" type="3" uid="{417ad544-6552-4d14-b6db-22239008374a}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2018-11-09, 21:24:47</Created>
+    <Created>2018-11-24, 19:51:46</Created>
     <Resource>
       <Filename>scans.py</Filename>
       <Linenumber>182</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="0" uid="{fcd1d903-e17a-412c-8743-20ce32f5993f}">
-    <Summary>FIXME: Problème si plusieurs whatis trouvés.</Summary>
+  <Task priority="1" completed="False" type="1" uid="{3d89ffe3-d877-4d94-be34-76d56540d346}">
+    <Summary>TODO: Effacer les paires de couleur utiles.</Summary>
     <Description></Description>
-    <Created>2018-11-19, 21:27:34</Created>
-    <Resource>
-      <Filename>infos.py</Filename>
-      <Linenumber>16</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="0" uid="{05a3b439-b592-4c2a-a79c-f24914251a46}">
-    <Summary>FIXME: Problème dans l'affichage des noms de (certains) fichier.</Summary>
-    <Description></Description>
-    <Created>2018-11-19, 21:57:41</Created>
+    <Created>2018-11-24, 19:52:21</Created>
     <Resource>
       <Filename>nctm_display.py</Filename>
-      <Linenumber>3</Linenumber>
+      <Linenumber>86</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{15cadbef-8762-4f2e-8bb0-30d37f441e4f}">
-    <Summary>TODO: Effacer les nom utiles.</Summary>
-    <Description></Description>
-    <Created>2018-11-19, 21:57:41</Created>
-    <Resource>
-      <Filename>nctm_display.py</Filename>
-      <Linenumber>88</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{aa3b31c5-bd62-43bc-8bef-ae4946d8cb09}">
+  <Task priority="1" completed="False" type="1" uid="{0c28133d-d33c-46b2-932f-c125b637eda7}">
     <Summary>TODO: à changer de place ou faire autrement.</Summary>
     <Description></Description>
-    <Created>2018-11-19, 21:57:41</Created>
+    <Created>2018-11-24, 19:52:21</Created>
     <Resource>
       <Filename>nctm_display.py</Filename>
-      <Linenumber>128</Linenumber>
+      <Linenumber>126</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{69096db1-3426-48a6-8afd-99b027fb4208}">
+  <Task priority="1" completed="False" type="1" uid="{d856e7f8-b974-4be0-be8a-d3755bb0416e}">
     <Summary>TODO: Calcul ou trouver astuce pour éviter le crash en cas de dépacement du nb de car sur fenêtre trop petite</Summary>
     <Description></Description>
-    <Created>2018-11-19, 21:57:41</Created>
+    <Created>2018-11-24, 19:52:21</Created>
     <Resource>
       <Filename>nctm_display.py</Filename>
-      <Linenumber>306</Linenumber>
+      <Linenumber>304</Linenumber>
     </Resource>
   </Task>
 </Tasks>

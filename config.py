@@ -198,7 +198,9 @@ class Config():
 
                 mode = 'x' if binfile.split('/').pop() in self.__x_bins else 'term'
 
+                # Ask for informations about a binary.
                 self.found_bins[binfile] = (ask_info(binfile), mode)
+
                 percent = int(cpt / l * 100)
                 if percent > oldpercent and percent % 10 == 0:
                     print("\t{}%".format(percent))
