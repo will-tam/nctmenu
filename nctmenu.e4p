@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project nctmenu -->
-<!-- Saved: 2018-10-29, 19:11:10 -->
+<!-- Saved: 2018-11-25, 18:33:47 -->
 <!-- Copyright (C) 2018 Will_tam,  -->
 <Project version="5.1">
   <Language></Language>
@@ -23,6 +23,7 @@
     <Source>nctm_help.py</Source>
     <Source>nctmenu.py</Source>
     <Source>scans.py</Source>
+    <Source>sorted_according.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

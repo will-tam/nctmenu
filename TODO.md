@@ -3,6 +3,7 @@
  - Tri : par ordre alpha de:
     - ceux qui on un whatis;
     - les autres.
+ - Lancer sur appuye d'ENTRÉE.
 
  - Nettoyage code :
     - import non utilisés;

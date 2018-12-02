@@ -12,6 +12,7 @@ import curses
 from infos import PRGNAME, VERSION
 import config
 import nctm_help
+import sorted_according as sortacc
 
 ######################
 
@@ -36,6 +37,7 @@ class NCTM_Display():
     # __space_right = percentage of space to write bin's help prevue.
     # __oldmaxy, __oldmaxx = size of window before resize it.
     # __ext = regex compilation to find extensions (see pattern).
+    # __sorting_idx = index of the sorting functions in __sorting_func list.
 
     # Keys definition values.
     __KEY_QUIT = 27
@@ -44,6 +46,8 @@ class NCTM_Display():
     __KEY_M = ord('M')
     __KEY_p = ord('p')
     __KEY_P = ord('P')
+    __KEY_s = ord('s')
+    __KEY_S = ord('S')
 
     __sep = "|"     # Column separator.
 
@@ -57,6 +61,12 @@ class NCTM_Display():
               'whatis' : len(__headers['whatis']),
               'termonly' : len(__headers['termonly']),
     }
+
+    # Sorting functions.
+    __sorting_func = [sortacc.Sorted_according().pathes,
+                      sortacc.Sorted_according().filenames,
+                      sortacc.Sorted_according().documentations_exist,
+    ]
 
     # Public methods.
     def __init__(self, stdscr, conf):
@@ -79,6 +89,8 @@ class NCTM_Display():
 
         self.__maxy, self.__maxx = self.main_win.getmaxyx()
 
+        self.__sorting_idx = 0
+
         if curses.has_colors():
             curses.init_pair(1, curses.COLOR_RED, 0)
             curses.init_pair(2, curses.COLOR_CYAN, 0)
@@ -89,6 +101,8 @@ class NCTM_Display():
 #            curses.init_pair(5, curses.COLOR_BLUE, 0)
 #            curses.init_pair(6, curses.COLOR_CYAN, 0)
 #            curses.init_pair(7, curses.COLOR_WHITE, 0)
+
+        self.conf.found_bins = self.__sorting_func[self.__sorting_idx](self.conf.found_bins)
 
         self.mainloop()
 
@@ -108,6 +122,8 @@ class NCTM_Display():
             self.__KEY_M : self.__keyM_pressed,
             self.__KEY_p : self.__keyP_pressed,
             self.__KEY_P : self.__keyP_pressed,
+            self.__KEY_s : self.__keyS_pressed,
+            self.__KEY_S : self.__keyS_pressed
         }
 
         keypressed =""
@@ -216,6 +232,19 @@ class NCTM_Display():
 
         self.main_win.attrset(0)
 
+    def __keyS_pressed(self, key=None):
+        """
+        Called if key 's' or 'S' has been pressed.
+        @parameters : key = which key has been pressed. None by default.
+        @return : none.
+        """
+        self.__sorting_idx += 1
+        if self.__sorting_idx > len(self.__sorting_func) - 1:
+            self.__sorting_idx = 0
+
+        self.conf.found_bins = self.__sorting_func[self.__sorting_idx](self.conf.found_bins)
+        self.__bins_to_show = [k for k in self.conf.found_bins.keys()]
+
     def __keyENTER_pressed(self, key=None):
         """
         Called if enter key has been pressed.
@@ -249,7 +278,6 @@ class NCTM_Display():
         @return : none.
         """
         for lin in range(3, self.__maxy - 1):
-
             if self.__first_display_bin_index + lin - 3 < self.__maxitem:
 
                 full_path = self.__bins_to_show[self.__first_display_bin_index + lin - 3]
@@ -293,7 +321,7 @@ class NCTM_Display():
         self.main_win.box()
 
         title = "{0} - {1}".format(PRGNAME, VERSION)[:self.__maxx]
-        statusbar = "(P)UP/(P)DOWN arrows : navigate - M : manpage - P : path - ENTER : run - ESC : exit"
+        statusbar = "(P)UP/(P)DOWN arrows : navigate - M : manpage - P : path - S : sort - ENTER : run - ESC : exit"
 
         len_title = len(title)
         len_sb = len(statusbar)

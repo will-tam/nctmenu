@@ -179,12 +179,15 @@ class Config():
             print("Creating ...")
 
             # Search for programs running inside X.
-            self.__x_bins = sorted([f for f in scans.scan_for_X_binfiles()])
+            # TODO: commmentaire à effacer à MàP
+#            self.__x_bins = sorted([f for f in scans.scan_for_X_binfiles()])
+            self.__x_bins = [f for f in scans.scan_for_X_binfiles()]
 
             # 1st scans binary files in given paths.
             self.found_bins = c.OrderedDict([(k, '') for k in scans.scan_for_binfiles(self.__paths_to_scan)])
-            # And order them.
-            self.found_bins = c.OrderedDict(sorted(self.found_bins.items(), key=lambda t: t[0]))
+            # TODO: commmentaire à effacer à MàP
+            # And order them according their directory.
+#            self.found_bins = c.OrderedDict(sorted(self.found_bins.items(), key=lambda t: t[0]))
 
             # XFree or terminal program ?
             # Looking for informations about each binaries.

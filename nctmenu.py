@@ -12,6 +12,7 @@ import re
 import curses
 import subprocess
 
+import collections as c
 
 # Third-part library import.
 import docopt
@@ -44,7 +45,21 @@ def main(args):
 
     # NOTE: debug
 #    for i, v in enumerate([k for k in conf.found_bins.keys()]):
-#        print("{} - {}".format(i, v))
+#        print("{} - {} -> {}".format(i, v, conf.found_bins[v][0]))
+
+#    def find_name(absolute):
+#        only_name = absolute[0].split("/")
+#        return only_name[-1]
+
+#    f = conf.found_bins
+#    f = c.OrderedDict(sorted(f.items(), key=lambda t: find_name(t)))
+#    conf.found_bins = f
+
+#    f = sortacc.Sorted_according().pathes(conf.found_bins)
+#    f = sortacc.Sorted_according().filenames(conf.found_bins)
+#    f = sortacc.Sorted_according().documentations_exist(conf.found_bins)
+#    for i, v in enumerate(f.items()):
+#        print("{} - {} -> {}".format(i, v, v[1]))
 
     curses.wrapper(nctm_display.NCTM_Display, conf)
 
