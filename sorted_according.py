@@ -21,7 +21,7 @@ class Sorted_according():
 
 
     # Public methods.
-    def pathes(self, odbin):
+    def paths(self, odbin):
         """
         The path of binaries.
         @parameters : odbin = OrderedDict of binaries.
@@ -48,7 +48,7 @@ class Sorted_according():
         @parameters : odbin = OrderedDict of binaries.
         @result : Sorted OrderedDict.
         """
-        odbin = self.pathes(odbin)  # 1rst, ask sort by pathes.
+        odbin = self.paths(odbin)  # 1rst, ask sort by pathes.
 
         with_doc = c.OrderedDict()
         without_doc = c.OrderedDict()

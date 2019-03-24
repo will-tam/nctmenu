@@ -12,6 +12,7 @@ import curses
 from infos import PRGNAME, VERSION
 import config
 import nctm_help
+import ntcm_run
 import sorted_according as sortacc
 
 ######################
@@ -63,7 +64,7 @@ class NCTM_Display():
     }
 
     # Sorting functions.
-    __sorting_func = [sortacc.Sorted_according().pathes,
+    __sorting_func = [sortacc.Sorted_according().paths,
                       sortacc.Sorted_according().filenames,
                       sortacc.Sorted_according().documentations_exist,
     ]
@@ -80,7 +81,7 @@ class NCTM_Display():
         self.conf = conf
 
         self.__bins_to_show = [k for k in self.conf.found_bins.keys()]
-        self.__bins_list_index = 0
+        self.__bins_list_index = 0      # Sorting by paths by default.
         self.__first_display_bin_index = 0
         self.__underline_index = 0
         self.__maxitem = len(self.__bins_to_show)
@@ -89,7 +90,7 @@ class NCTM_Display():
 
         self.__maxy, self.__maxx = self.main_win.getmaxyx()
 
-        self.__sorting_idx = 0
+        self.__sorting_idx = 1
 
         if curses.has_colors():
             curses.init_pair(1, curses.COLOR_RED, 0)
@@ -102,7 +103,8 @@ class NCTM_Display():
 #            curses.init_pair(6, curses.COLOR_CYAN, 0)
 #            curses.init_pair(7, curses.COLOR_WHITE, 0)
 
-        self.conf.found_bins = self.__sorting_func[self.__sorting_idx](self.conf.found_bins)
+#        self.conf.found_bins = self.__sorting_func[self.__sorting_idx](self.conf.found_bins)
+        self.__keyS_pressed()
 
         self.mainloop()
 
@@ -238,9 +240,7 @@ class NCTM_Display():
         @parameters : key = which key has been pressed. None by default.
         @return : none.
         """
-        self.__sorting_idx += 1
-        if self.__sorting_idx > len(self.__sorting_func) - 1:
-            self.__sorting_idx = 0
+        self.__sorting_idx = (self.__sorting_idx + 1) % 3   # Possibility in only 3 kinds of search.
 
         self.conf.found_bins = self.__sorting_func[self.__sorting_idx](self.conf.found_bins)
         self.__bins_to_show = [k for k in self.conf.found_bins.keys()]
@@ -251,7 +251,7 @@ class NCTM_Display():
         @parameters : key = which key has been pressed. None by default.
         @return : none.
         """
-        pass
+        run_it = ntcm_run.NCTM_Run()
 
     def __make_cells_headers(self):
         """
