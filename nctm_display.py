@@ -70,13 +70,15 @@ class NCTM_Display():
     ]
 
     # Public methods.
-    def __init__(self, stdscr, conf):
+    def __init__(self, stdscr, conf, rawlist=False):
         """
         __init__ : initiate class
         @parameters : stdscr = represents the whole screen.
                       conf = the config address.
+                      rawlist = True if only display raw list.
         @return : none.
         """
+
         self.main_win= stdscr
         self.conf = conf
 
@@ -88,25 +90,30 @@ class NCTM_Display():
 
         self.__oldmaxy, self.__oldmaxx = (0, 0)
 
-        self.__maxy, self.__maxx = self.main_win.getmaxyx()
+        if rawlist:
+            self.__sorting_idx = 0  # Sort by paths
+            self.__rawlist()
 
-        self.__sorting_idx = 1
+        else:
+            self.__sorting_idx = 1  # Sort by filenames
 
-        if curses.has_colors():
-            curses.init_pair(1, curses.COLOR_RED, 0)
-            curses.init_pair(2, curses.COLOR_CYAN, 0)
-            curses.init_pair(3, curses.COLOR_YELLOW, 0)
-#           TODO: Effacer les paires de couleur utiles.
-#            curses.init_pair(3, curses.COLOR_GREEN, 0)
-#            curses.init_pair(4, curses.COLOR_MAGENTA, 0)
-#            curses.init_pair(5, curses.COLOR_BLUE, 0)
-#            curses.init_pair(6, curses.COLOR_CYAN, 0)
-#            curses.init_pair(7, curses.COLOR_WHITE, 0)
+            self.__maxy, self.__maxx = self.main_win.getmaxyx()
 
-#        self.conf.found_bins = self.__sorting_func[self.__sorting_idx](self.conf.found_bins)
-        self.__keyS_pressed()
+            if curses.has_colors():
+                curses.init_pair(1, curses.COLOR_RED, 0)
+                curses.init_pair(2, curses.COLOR_CYAN, 0)
+                curses.init_pair(3, curses.COLOR_YELLOW, 0)
+    #           TODO: Effacer les paires de couleur utiles.
+    #            curses.init_pair(3, curses.COLOR_GREEN, 0)
+    #            curses.init_pair(4, curses.COLOR_MAGENTA, 0)
+    #            curses.init_pair(5, curses.COLOR_BLUE, 0)
+    #            curses.init_pair(6, curses.COLOR_CYAN, 0)
+    #            curses.init_pair(7, curses.COLOR_WHITE, 0)
 
-        self.mainloop()
+    #        self.conf.found_bins = self.__sorting_func[self.__sorting_idx](self.conf.found_bins)
+            self.__keyS_pressed()
+
+            self.mainloop()
 
     def mainloop(self):
         """
@@ -151,6 +158,21 @@ class NCTM_Display():
             keypressed = self.main_win.getch()
 
     # Private methods.
+    def __rawlist(self):
+        """
+        Display in raw list to be redirected in file, for example.
+        @parameters = none.
+        @return = none.
+        """
+        self.conf.found_bins = self.__sorting_func[self.__sorting_idx](self.conf.found_bins)
+        print("\nFull/path/of/bin--whatis--term only(term)|graphic(x)\n")
+
+        for found_bin in self.conf.found_bins:
+            help = self.conf.found_bins[found_bin][0]
+            term = self.conf.found_bins[found_bin][1]
+
+            print("{}--{}--{}".format(found_bin, help, term))
+
     def __keydown_pressed(self, key=None):
         """
         Called if down or page down key has been pressed.

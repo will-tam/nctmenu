@@ -10,6 +10,7 @@ Options:
     -h, --help      This help.
     -r, --rescan    Recreate scanning files (ask scan executable directories,
                                              then scan given directories).
+    -l, --list      Display in raw format. Can be used redirect files list in another file.
 """
 
 import subprocess

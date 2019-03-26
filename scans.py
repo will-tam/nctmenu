@@ -141,7 +141,7 @@ def scan_for_binfiles(paths):
     @return : yield the binary.
     """
     # NOTE: debug
-    printthis("paths", paths)
+#    printthis("paths", paths)
     for path in paths:
         print("\tScanning", path)
         # fwalk help recipe.

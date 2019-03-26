@@ -103,7 +103,7 @@ class Config():
         full_prog_conf_file = conf_dir + self.__prog_config_file
 
         # NOTE: debug
-        printthis("full_prog_conf_file", full_prog_conf_file)
+#        printthis("full_prog_conf_file", full_prog_conf_file)
 
         try:
             with open(full_prog_conf_file, "r+t") as f:
@@ -126,7 +126,7 @@ class Config():
         full_bins_list_files = conf_dir + self.__bins_list_file
 
         # NOTE: debug
-        printthis("full_bins_list_files", full_bins_list_files)
+#        printthis("full_bins_list_files", full_bins_list_files)
 
         try:
             with open(full_bins_list_files, "r+b") as f:

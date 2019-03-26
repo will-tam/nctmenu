@@ -61,7 +61,10 @@ def main(args):
 #    for i, v in enumerate(f.items()):
 #        print("{} - {} -> {}".format(i, v, v[1]))
 
-    curses.wrapper(nctm_display.NCTM_Display, conf)
+    if args['--list']:
+        nctm_display.NCTM_Display(None, conf, True)
+    else:
+        curses.wrapper(nctm_display.NCTM_Display, conf)
 
     return 0
 

@@ -4,5 +4,5 @@
 
  - Nettoyage code :
     - import non utilisés;
-    - print() non pertinant;
+   NC - print() non pertinant;
     - commentaires non pertinants.
