@@ -11,6 +11,7 @@ import curses
 # Projet modules import.
 from infos import PRGNAME, VERSION
 import config
+import nctm_man
 import nctm_help
 import ntcm_run
 import sorted_according as sortacc
@@ -43,6 +44,8 @@ class NCTM_Display():
     # Keys definition values.
     __KEY_QUIT = 27
     __KEY_ENTER = 10
+    __KEY_h = ord('h')
+    __KEY_H = ord('H')
     __KEY_m = ord('m')
     __KEY_M = ord('M')
     __KEY_p = ord('p')
@@ -127,6 +130,8 @@ class NCTM_Display():
             curses.KEY_UP : self.__keyup_pressed,
             curses.KEY_PPAGE : self.__keyup_pressed,
             self.__KEY_ENTER : self.__keyENTER_pressed,
+            self.__KEY_h : self.__keyH_pressed,
+            self.__KEY_H : self.__keyH_pressed,
             self.__KEY_m : self.__keyM_pressed,
             self.__KEY_M : self.__keyM_pressed,
             self.__KEY_p : self.__keyP_pressed,
@@ -147,10 +152,6 @@ class NCTM_Display():
             if keypressed in callback.keys():
                 callback[keypressed](keypressed)
                 self.__updatedata()
-
-            # TODO: à changer de place ou faire autrement.
-            info = "{0}/{1}".format(self.__bins_list_index + 1, self.__maxitem)
-            self.main_win.addstr(0, 0, info, curses.A_BOLD)
 
             self.main_win.refresh()
             curses.doupdate()
@@ -225,15 +226,31 @@ class NCTM_Display():
             self.__underline_index = old_underline_index
             self.__first_display_bin_index -= step
 
-    def __keyM_pressed(self, key=None):
+    def __keyH_pressed(self, key=None):
         """
         Called if key 'h' or 'H' has been pressed.
         @parameters : key = which key has been pressed. None by default.
         @return : none.
         """
+        nctm_help.NCTM_Help(self.main_win, self.__maxy, self.__maxx)
+
+        self.__updatemain()     # Init again if any changes while help window displaying.
+
+#        full_path = self.__bins_to_show[self.__first_display_bin_index + self.__underline_index]
+#        help = self.conf.found_bins[full_path][0]
+#        nctm_man.NCTM_Man(self.main_win, full_path, help, self.__maxy, self.__maxx)
+#
+#        self.__updatemain()     # Init again if any changes while help window displaying.
+
+    def __keyM_pressed(self, key=None):
+        """
+        Called if key 'm' or 'M' has been pressed.
+        @parameters : key = which key has been pressed. None by default.
+        @return : none.
+        """
         full_path = self.__bins_to_show[self.__first_display_bin_index + self.__underline_index]
         help = self.conf.found_bins[full_path][0]
-        nctm_help.NCTM_Help(self.main_win, full_path, help, self.__maxy, self.__maxx)
+        nctm_man.NCTM_Man(self.main_win, full_path, help, self.__maxy, self.__maxx)
 
         self.__updatemain()     # Init again if any changes while help window displaying.
 
@@ -330,6 +347,10 @@ class NCTM_Display():
             line_to_show = (self.__underline_index + 3)
             self.main_win.chgat(line_to_show, 1, self.__maxx - 2, curses.A_REVERSE)
 
+            info = " {0}/{1} - h / H : Help".format(self.__bins_list_index + 1, self.__maxitem)
+
+            self.main_win.addstr(self.__maxy - 1, 0, info, curses.A_BOLD)
+
     def __updatemain(self):
         """
         Update to refresh main window.
@@ -343,13 +364,13 @@ class NCTM_Display():
         self.main_win.box()
 
         title = "{0} - {1}".format(PRGNAME, VERSION)[:self.__maxx]
-        statusbar = "(P)UP/(P)DOWN arrows : navigate - M : manpage - P : path - S : sort - ENTER : run - ESC : exit"
+#        statusbar = "(P)UP/(P)DOWN arrows : navigate - M : manpage - P : path - S : sort - ENTER : run - ESC : exit"
 
         len_title = len(title)
-        len_sb = len(statusbar)
+#        len_sb = len(statusbar)
 
         title_middlex = (self.__maxx >> 1) - (len_title >> 1) - len_title % 2
-        sb_middlex = (self.__maxx >> 1) - (len_sb >> 1) - len_sb % 2
+#        sb_middlex = (self.__maxx >> 1) - (len_sb >> 1) - len_sb % 2
 
         # TODO: Calcul ou trouver astuce pour éviter le crash en cas de dépacement du nb de car sur fenêtre trop petite
         # en lieu et place du try ci-dessous.
@@ -358,7 +379,7 @@ class NCTM_Display():
 
         try:
             self.main_win.addstr(0, title_middlex, title)
-            self.main_win.addstr(self.__maxy - 1, sb_middlex, statusbar, curses.A_REVERSE)
+#            self.main_win.addstr(self.__maxy - 1, sb_middlex, statusbar, curses.A_REVERSE)
         except:
             if curses.has_colors():
                 self.main_win.attrset(curses.color_pair(3) | curses.A_REVERSE | curses.A_BOLD)
