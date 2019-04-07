@@ -1,8 +1,6 @@
- - Création d'un fichier de config., si non existant.
- - Suivant option, reconfig.
- - Lancer sur appuye d'ENTRÉE.
+ - Run on ENTER press.
 
- - Nettoyage code :
-    - import non utilisés;
-   NC - print() non pertinant;
-    - commentaires non pertinants.
+ - Clean code :
+    - never used import;
+    - unusefull NC - print();
+    - unusefull comments.
