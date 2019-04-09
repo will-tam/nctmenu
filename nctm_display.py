@@ -13,7 +13,7 @@ from infos import PRGNAME, VERSION
 import config
 import nctm_man
 import nctm_help
-import ntcm_run
+import nctm_run
 import sorted_according as sortacc
 
 ######################
@@ -236,12 +236,6 @@ class NCTM_Display():
 
         self.__updatemain()     # Init again if any changes while help window displaying.
 
-#        full_path = self.__bins_to_show[self.__first_display_bin_index + self.__underline_index]
-#        help = self.conf.found_bins[full_path][0]
-#        nctm_man.NCTM_Man(self.main_win, full_path, help, self.__maxy, self.__maxx)
-#
-#        self.__updatemain()     # Init again if any changes while help window displaying.
-
     def __keyM_pressed(self, key=None):
         """
         Called if key 'm' or 'M' has been pressed.
@@ -249,8 +243,8 @@ class NCTM_Display():
         @return : none.
         """
         full_path = self.__bins_to_show[self.__first_display_bin_index + self.__underline_index]
-        help = self.conf.found_bins[full_path][0]
-        nctm_man.NCTM_Man(self.main_win, full_path, help, self.__maxy, self.__maxx)
+        man = self.conf.found_bins[full_path][0]
+        nctm_man.NCTM_Man(self.main_win, full_path, man, self.__maxy, self.__maxx)
 
         self.__updatemain()     # Init again if any changes while help window displaying.
 
@@ -290,7 +284,11 @@ class NCTM_Display():
         @parameters : key = which key has been pressed. None by default.
         @return : none.
         """
-        run_it = ntcm_run.NCTM_Run()
+        full_path = self.__bins_to_show[self.__first_display_bin_index + self.__underline_index]
+        man = self.conf.found_bins[full_path][0]
+        nctm_run.NCTM_Run(self.main_win, full_path, man, self.__maxy, self.__maxx)
+
+        self.__updatemain()     # Init again if any changes while help window displaying.
 
     def __make_cells_headers(self):
         """

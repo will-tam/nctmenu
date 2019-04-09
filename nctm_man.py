@@ -29,7 +29,7 @@ class NCTM_Man():
     # __pmaxx = maximum of lines of the pan.
     # __pmaxy = maximum of columns of the pan.
     # __binpath = the path of the binary.
-    # __binhelp = the whatis of the binary.
+    # __binman = the whatis of the binary.
     # __first_line = first line to display in pad.
     # __manpage = dictinnary as {'content' : content of manpage,
     #                            'nblines' : number of lines ,
@@ -38,16 +38,16 @@ class NCTM_Man():
     __KEY_QUIT = 27
 
     # Public methods.
-    def __init__(self, main_win, binpath, binhelp, maxy, maxx):
+    def __init__(self, main_win, binpath, binman, maxy, maxx):
         """
         __init__ : initiate class
         @parameters : binpath = the full path of the binary.
-                      binhelp = the whatis of the binary.
+                      binman = the whatis of the binary.
                       maxy = maximum of term (main win) lines.
                       maxx = maximum of term (main win) columns.
         @return : none.
         """
-        self.__binhelp = binhelp
+        self.__binman = binman
         self.__binpath = binpath
 
         self.__main_win = main_win
@@ -55,7 +55,7 @@ class NCTM_Man():
         self.__maxy = maxy
 
         # Init self.__manpage{},
-        if not self.__binhelp:
+        if not self.__binman:
             self.__no_manpage_found()
         else:
             self.__manpage_found()
@@ -182,7 +182,7 @@ class NCTM_Man():
         self.__maxy, self.__maxx = self.__main_win.getmaxyx()
         self.man_win.box()
         self.man_win.addstr(0, 1, "ESC : exit", curses.A_REVERSE)
-        self.__fill_pad(not(self.__binhelp))
+        self.__fill_pad(not(self.__binman))
 
     def __fill_pad(self, one_line):
         """
