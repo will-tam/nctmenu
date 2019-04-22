@@ -1,8 +1,8 @@
- - Run on ENTER press.
+ - To run on ENTER press.
 
- - Search on / press.
+ - to search on / press.
 
- - Clean code :
+ - To clean up code :
     - never used import;
     - unusefull NC - print();
     - unusefull comments.

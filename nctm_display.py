@@ -244,7 +244,8 @@ class NCTM_Display():
         """
         full_path = self.__bins_to_show[self.__first_display_bin_index + self.__underline_index]
         man = self.conf.found_bins[full_path][0]
-        nctm_man.NCTM_Man(self.main_win, full_path, man, self.__maxy, self.__maxx)
+        manpage_win = nctm_man.NCTM_Man(self.main_win, full_path, man, self.__maxy, self.__maxx)
+        manpage_win.mainloop()
 
         self.__updatemain()     # Init again if any changes while help window displaying.
 

@@ -42,9 +42,10 @@ class NCTM_Man():
         """
         __init__ : initiate class
         @parameters : binpath = the full path of the binary.
-                      binman = the whatis of the binary.
+                      binman = the manpage of the binary.
                       maxy = maximum of term (main win) lines.
                       maxx = maximum of term (main win) columns.
+                      only_man = True => man is only used for ... man ; False => somthing else uses manpage.
         @return : none.
         """
         self.__binman = binman
@@ -53,6 +54,8 @@ class NCTM_Man():
         self.__main_win = main_win
         self.__maxx = maxx
         self.__maxy = maxy
+
+        self.__first_line = 0
 
         # Init self.__manpage{},
         if not self.__binman:
@@ -68,8 +71,6 @@ class NCTM_Man():
 
         self.man_win.keypad(1)
 
-        self.mainloop()
-
     def mainloop(self):
         """
         Main loop.
@@ -77,29 +78,27 @@ class NCTM_Man():
         @return : none.
         """
         callback = {
-            curses.KEY_DOWN : self.__keydown_pressed,
-            curses.KEY_NPAGE : self.__keydown_pressed,
-            curses.KEY_UP : self.__keyup_pressed,
-            curses.KEY_PPAGE : self.__keyup_pressed
+            curses.KEY_DOWN : self._keydown_pressed,
+            curses.KEY_NPAGE : self._keydown_pressed,
+            curses.KEY_UP : self._keyup_pressed,
+            curses.KEY_PPAGE : self._keyup_pressed
         }
 
         keypressed =""
 
-        self.__first_line = 0
-
         while keypressed != self.__KEY_QUIT:
             if self.__main_win.is_wintouched:      # Window resizing detection curses.
-                self.__updatehelp()
+                self._updateman()
 
             if keypressed in callback.keys():
                 callback[keypressed](keypressed)
 
-            self.__manpage_display(self.__first_line)
+            self._manpage_display()
 
             keypressed = self.man_win.getch()
 
-    # Private methods.
-    def __keydown_pressed(self, key=None):
+    # "Protected" methods.
+    def _keydown_pressed(self, key=None):
         """
         Called if down or page down key has been pressed.
         @parameters : key = which key has been pressed. None by default.
@@ -116,7 +115,7 @@ class NCTM_Man():
         if self.__pmaxy - self.__first_line < self.__maxy:
             self.__first_line = self.__pmaxy - self.__maxy
 
-    def __keyup_pressed(self, key=None):
+    def _keyup_pressed(self, key=None):
         """
         Called if down or page down key has been pressed.
         @parameters : key = which key has been pressed. None by default.
@@ -133,6 +132,36 @@ class NCTM_Man():
         if self.__first_line < 0:
             self.__first_line = 0
 
+    def _updateman(self, yadjustement=0):
+        """
+        Update to refresh main window.
+        @parameters : yadjustement = number of line to remove in y.
+        @return : none.
+        """
+        self.__maxy, self.__maxx = self.__main_win.getmaxyx()
+        self.__main_win.clear()
+        self.man_win.clear()
+        self.__maxy -= yadjustement
+        self.man_win.box()
+        self.man_win.addstr(0, 1, "ESC : exit - yadjustement", curses.A_REVERSE)
+        self.__fill_pad(not(self.__binman))
+
+#    def _manpage_display(self, from_line=self.__first_line):
+    def _manpage_display(self):
+        """
+        Display manpage from a line number.
+        @parameters : from_line = line from where to begin.
+        @return : none.
+        """
+        try:
+#            self.man_win.refresh(from_line, 0, 0, 0, self.__maxy - 1, self.__maxx - 1)
+            self.man_win.refresh(self.__first_line, 0, 0, 0, self.__maxy - 1, self.__maxx - 1)
+        except:
+            pass
+
+        curses.doupdate()
+
+    # Private methods.
     def __no_manpage_found(self):
         """
         Even if no manpage found, something to display.
@@ -171,19 +200,6 @@ class NCTM_Man():
                           'nblines' : len(content) + 1,    # Number of lines in list is the length of manpage.
                           'nbcols' : len(content[0]) + 3}  # First line of manpage give the width.
 
-    def __updatehelp(self):
-        """
-        Update to refresh main window.
-        @parameters : none.
-        @return : none.
-        """
-        self.__main_win.clear()
-        self.man_win.clear()
-        self.__maxy, self.__maxx = self.__main_win.getmaxyx()
-        self.man_win.box()
-        self.man_win.addstr(0, 1, "ESC : exit", curses.A_REVERSE)
-        self.__fill_pad(not(self.__binman))
-
     def __fill_pad(self, one_line):
         """
         Fill the pad with manpage.
@@ -204,20 +220,7 @@ class NCTM_Man():
                 self.man_win.addstr(line, 1, content)
                 line += 1
 
-    def __manpage_display(self, from_line):
-        """
-        Fill the pad with manpage.
-        @parameters : from_line = line from where to begin.
-        @return : none.
-        """
-        try:
-            self.man_win.refresh(from_line, 0, 0, 0, self.__maxy - 1, self.__maxx - 1)
-        except:
-            pass
-
-        curses.doupdate()
-
 ######################
 
 if __name__ == "__main__":
-    help(My_class)
+    help(NCTM_Man)
