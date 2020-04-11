@@ -143,7 +143,7 @@ class NCTM_Man():
         self.man_win.clear()
         self.__maxy -= yadjustement
         self.man_win.box()
-        self.man_win.addstr(0, 1, "ESC : exit - yadjustement", curses.A_REVERSE)
+        self.man_win.addstr(0, 1, "ESC : exit", curses.A_REVERSE)
         self.__fill_pad(not(self.__binman))
 
 #    def _manpage_display(self, from_line=self.__first_line):
