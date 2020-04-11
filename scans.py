@@ -182,7 +182,11 @@ def scan_for_X_binfiles():
     # NOTE: debug
 #    printthis("mlocate_emul.locate_cmd", mlocate_emul.locate_cmd)
     for file in mlocate_emul.locate_cmd():
-        cr, find = searchin(file)
+        try:    # Maybe a file will raise a problem.
+            cr, find = searchin(file)
+        except: # Problem with a file ? Don't care about !
+            continue
+
 
         if cr and find:     # Beward of bad formated files.
             find = find.split('=').pop()

@@ -2,7 +2,7 @@
 <!DOCTYPE Session SYSTEM "Session-5.0.dtd">
 <!-- eric6 session file for project nctmenu -->
 <!-- This file was generated automatically, do not edit. -->
-<!-- Saved: 2019-04-20, 09:11:48 -->
+<!-- Saved: 2019-05-01, 11:02:15 -->
 <Session version="5.0">
   <Filenames>
     <Filename cline="45" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctmenu.py</Filename>
@@ -10,20 +10,13 @@
     <Filename cline="100" cindex="50" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/config.py</Filename>
     <Filename cline="247" cindex="30" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_display.py</Filename>
     <Filename cline="7" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/infos.py</Filename>
-    <Filename cline="55" cindex="19" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_man.py</Filename>
-    <Filename cline="82" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_run.py</Filename>
+    <Filename cline="145" cindex="45" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_man.py</Filename>
+    <Filename cline="156" cindex="59" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_run.py.old</Filename>
     <Filename cline="0" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/scans.py</Filename>
+    <Filename cline="124" cindex="18" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctm_run.py</Filename>
   </Filenames>
-  <Breakpoints>
-    <Breakpoint>
-      <BpFilename>/home/will/data/programmation/python/nctmenu/nctm_run.py</BpFilename>
-      <Linenumber value="80"/>
-      <Condition></Condition>
-      <Temporary value="False"/>
-      <Enabled value="True"/>
-      <Count value="0"/>
-    </Breakpoint>
-  </Breakpoints>
+  <ActiveWindow cline="124" cindex="18">/home/will/data/programmation/python/nctmenu/nctm_run.py</ActiveWindow>
+  <Breakpoints/>
   <Watchexpressions/>
   <DebugInfo>
     <CommandLine></CommandLine>
@@ -31,7 +24,9 @@
     <Environment></Environment>
     <ReportExceptions value="True"/>
     <Exceptions/>
-    <IgnoredExceptions/>
+    <IgnoredExceptions>
+      <IgnoredException>NameError</IgnoredException>
+    </IgnoredExceptions>
     <AutoClearShell value="True"/>
     <TracePython value="False"/>
     <AutoContinue value="True"/>
@@ -59,6 +54,7 @@
     <ProjectBrowserState name="sources">
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/config.py</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/config.py@@36</ExpandedItemName>
+      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/debug.py</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_display.py</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_display.py@@21</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_help.py</ExpandedItemName>
@@ -66,7 +62,8 @@
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_man.py</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_man.py@@17</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_run.py</ExpandedItemName>
-      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_run.py@@18</ExpandedItemName>
+      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_run.py@@19</ExpandedItemName>
+      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctm_run.py.old</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctmenu.py</ExpandedItemName>
     </ProjectBrowserState>
     <ProjectBrowserState name="forms"/>

@@ -3,7 +3,8 @@
 from debug import *
 
 # Standard libraries import.
-import curses.textpad as textpad
+#import curses.textpad as ctextpad
+import curses.ascii as cascii
 import subprocess
 
 # Third libraries import.
@@ -36,9 +37,13 @@ class NCTM_Run(nctm_man.NCTM_Man):
     # __manpage = dictinnary as {'content' : content of manpage,
     #                            'nblines' : number of lines ,
     #                            'nbcols' : number of columns (caracters)}
+    # __posy = y position in option edit.
+    # __posx = x position in option edit.
+    # __posx_limit = can't be gone lefter than this position.
 
     __RUN_WIN_H = 5
     __KEY_QUIT = 27
+    __PROMPT = "args > "
 
     # Public methods.
     def __init__(self, main_win, binpath, binman, maxy, maxx):
@@ -61,15 +66,18 @@ class NCTM_Run(nctm_man.NCTM_Man):
         self.__pmaxy = self.__RUN_WIN_H
         self.__pmaxx = self.__maxx
 
+        super().__init__(self.__main_win, self.__binpath, self.__binman, self.__maxy - self.__RUN_WIN_H, self.__maxx)
+
         self.run_win = curses.newpad(self.__pmaxy, self.__pmaxx - 2)
 
 #        self.__opt_win = textpad.rectangle(self.run_win, 0, 0, 1, 1)
-        self.__opt_win = textpad.Textbox(self.run_win)
-        self.__opt_win.stripspaces = True
+#        self.__opt_win = ctextpad.Textbox(self.run_win, insert_mode=True)
+
+        self.__posy = 2
+        self.__posx = len(self.__PROMPT) + 1
+        self.__posx_limit = self.__posx
 
         self.run_win.keypad(1)
-
-        super().__init__(self.__main_win, self.__binpath, self.__binman, self.__maxy - self.__RUN_WIN_H, self.__maxx)
 
         self.mainloop()
 
@@ -99,6 +107,8 @@ class NCTM_Run(nctm_man.NCTM_Man):
 
             if keypressed in callback.keys():
                 callback[keypressed](keypressed)
+            else:
+                self.__edit(keypressed)
 
             super()._manpage_display()
             self.__runpage_display()
@@ -106,40 +116,18 @@ class NCTM_Run(nctm_man.NCTM_Man):
             keypressed = self.run_win.getch()
 
     # Private methods.
+    def __edit(self, ch):
+        """
+        Edit the options.
+        @parameters : ch = the pressed key.
+        @return : none.
+        """
+#        self.run_win.addstr(self.__posy, self.__posx, "{} - {}".format(self.__posy, self.__posx))
+        if cascii.isprint(ch):
+            self._
+        else:
+            pass
 
-#    def __keydown_pressed(self, key=None):
-#        """
-#        Called if down or page down key has been pressed.
-#        @parameters : key = which key has been pressed. None by default.
-#        @return : none.
-#        """
-#        if key == curses.KEY_NPAGE:
-#            step = self.__maxy - 2
-#
-#        else:               # Normal arrow key.
-#            step = 1
-#
-#        self.__first_line += step
-#
-#        if self.__pmaxy - self.__first_line < self.__maxy:
-#            self.__first_line = self.__pmaxy - self.__maxy
-#
-#    def __keyup_pressed(self, key=None):
-#        """
-#        Called if down or page down key has been pressed.
-#        @parameters : key = which key has been pressed. None by default.
-#        @return : none.
-#        """
-#        if key == curses.KEY_PPAGE:
-#            step = self.__maxy - 2
-#
-#        else:       # Normal arrow key.
-#            step = 1
-#
-#        self.__first_line -= step
-#
-#        if self.__first_line < 0:
-#            self.__first_line = 0
 
     def __updaterun(self):
         """
@@ -152,7 +140,7 @@ class NCTM_Run(nctm_man.NCTM_Man):
         self.__maxy, self.__maxx = self.__main_win.getmaxyx()
         self.run_win.box()
         self.run_win.addstr(self.__pmaxy - 1, 1, "ESC : exit", curses.A_REVERSE)
-        self.run_win.addstr(2, 1, "args > ")
+        self.run_win.addstr(2, 1, self.__PROMPT)
         self.run_win.addstr(0, 1, "Run : {} - UNDER BUILDING".format(self.__binpath), curses.A_REVERSE)
 
 #        self.__fill_pad()
