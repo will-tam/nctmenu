@@ -1,5 +1,5 @@
 PRGNAME = "nctmenu"
-VERSION = "0.20180816"
+VERSION = "0.20200411"
 
 HOWTO = PRGNAME + """.py
 

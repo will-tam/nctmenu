@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project nctmenu -->
-<!-- Saved: 2019-04-21, 09:04:36 -->
-<!-- Copyright (C) 2019 Will_tam,  -->
+<!-- Saved: 2020-04-11, 17:53:19 -->
+<!-- Copyright (C) 2020 Will_tam,  -->
 <Project version="5.1">
   <Language></Language>
   <Hash>a2e0f1f08859ebff1a027536fd2ddce4ec94bc1f</Hash>
@@ -23,7 +23,6 @@
     <Source>nctm_help.py</Source>
     <Source>nctm_man.py</Source>
     <Source>nctm_run.py</Source>
-    <Source>nctm_run.py.old</Source>
     <Source>nctmenu.py</Source>
     <Source>scans.py</Source>
     <Source>sorted_according.py</Source>
