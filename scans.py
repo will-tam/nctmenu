@@ -96,7 +96,7 @@ class Mlocate_emul():
         @parameters : none.
         @return : yield a file name in .desktop.
         """
-        cmd = "mlocate -i *.Desktop"
+        cmd = "/usr/bin/mlocate -i *.Desktop"
         for ff in subprocess.getoutput(cmd).splitlines():
             yield ff
 
