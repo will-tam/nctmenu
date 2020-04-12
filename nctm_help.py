@@ -28,16 +28,20 @@ class NCTM_Help():
 
     __KEY_QUIT = 27
 
-    __HELP = ["ESC : exit the watching screen. In main one, exit program.",
-              "ENTER : run the program highlighting.",
-              "up / page up : one line / page up.",
-              "down / page down : one /page down.",
-              "m / M : program highlighting man page screen",
-              "s / S : - sort by paths (default)",
-              "        - file names (alpha sort)",
-              "        - documented programs first",
-              "p / P : show program highlighting path.",
-              "h / H : this screen.",
+    __HELP = [(0, "ESC : exit the watching screen. In main one, exit program."),
+              (0, "ENTER : run the program highlighting."),
+              (0, "up / page up : one line / page up."),
+              (0, "down / page down : one /page down."),
+              (0, "m / M : program highlighting man page screen"),
+              (0, "s / S : - sort by paths (default)"),
+              (0, "        - file names (alpha sort)"),
+              (0, "        - documented programs first"),
+              (0, "p / P : show program highlighting path."),
+              (0, "h / H : this screen."),
+              (0, " "),
+              (0, 8*"-"),
+              (0, " "),
+              (1, "File marked as eXecutable, but  shouldn't be."),
     ]
 
     # Public methods.
@@ -97,7 +101,14 @@ class NCTM_Help():
         line = 2
 
         for content in self.__HELP:
-            self.help_win.addstr(line, 1, content)
+            if content[0]:
+                if curses.has_colors():
+                    self.help_win.attrset(curses.color_pair(content[0]))
+                else:
+                    self.help_win.attrset(curses.A_BOLD | curses.A_REVERSE | curses.A_BLINK)
+
+            self.help_win.addstr(line, 1, content[1])
+            self.help_win.attrset(0)
             line += 1
 
     def __help_display(self):

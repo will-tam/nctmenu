@@ -257,7 +257,6 @@ class NCTM_Display():
         """
         if curses.has_colors():
             self.main_win.attrset(curses.color_pair(2) | curses.A_BOLD | curses.A_REVERSE)
-
         else:
             self.main_win.attrset(curses.A_BOLD | curses.A_REVERSE)
 
@@ -330,7 +329,6 @@ class NCTM_Display():
                 infos += (self.__space_right - len(help) - 1)*" " + self.__sep
                 infos += "Y" if term == "term" else "N"
                 infos += (self.__maxx  - len(infos) - 2)*" "
-
             else:
                 infos = (self.__maxx - 2)*" "
 
