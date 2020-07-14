@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from debug import *
+from .debug import *
 
 # Standard libraries import.
 import os
@@ -10,8 +10,8 @@ import collections as c
 # Third libraries import.
 
 # Projet modules import.
-from infos import PRGNAME, ask_info
-import scans
+from .infos import PRGNAME, ask_info
+from . import scans
 
 ######################
 

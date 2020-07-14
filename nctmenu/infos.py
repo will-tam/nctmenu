@@ -1,5 +1,11 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+# Standard library import.
+import sys
+
 PRGNAME = "nctmenu"
-VERSION = "0.20200411"
+VERSION = "0.20200714"
 
 HOWTO = PRGNAME + """.py
 

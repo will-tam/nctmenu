@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project nctmenu -->
-<!-- Saved: 2020-04-11, 17:53:19 -->
+<!-- Saved: 2020-07-14, 11:12:27 -->
 <!-- Copyright (C) 2020 Will_tam,  -->
 <Project version="5.1">
   <Language></Language>
@@ -16,16 +16,19 @@
     <Source>LICENSE.md</Source>
     <Source>README.md</Source>
     <Source>TODO.md</Source>
-    <Source>config.py</Source>
+    <Source>VERSION</Source>
+    <Source>__init__.py</Source>
     <Source>debug.py</Source>
-    <Source>infos.py</Source>
-    <Source>nctm_display.py</Source>
-    <Source>nctm_help.py</Source>
-    <Source>nctm_man.py</Source>
-    <Source>nctm_run.py</Source>
     <Source>nctmenu.py</Source>
-    <Source>scans.py</Source>
-    <Source>sorted_according.py</Source>
+    <Source>nctmenu/__init__.py</Source>
+    <Source>nctmenu/config.py</Source>
+    <Source>nctmenu/infos.py</Source>
+    <Source>nctmenu/nctm_display.py</Source>
+    <Source>nctmenu/nctm_help.py</Source>
+    <Source>nctmenu/nctm_man.py</Source>
+    <Source>nctmenu/nctm_run.py</Source>
+    <Source>nctmenu/scans.py</Source>
+    <Source>nctmenu/sorted_according.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

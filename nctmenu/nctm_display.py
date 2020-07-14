@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from debug import *
+from .debug import *
 
 # Standard libraries import.
 import curses
@@ -9,12 +9,13 @@ import curses
 
 
 # Projet modules import.
-from infos import PRGNAME, VERSION
-import config
-import nctm_man
-import nctm_help
-import nctm_run
-import sorted_according as sortacc
+
+from .infos import PRGNAME, VERSION
+from . import config
+from . import nctm_man
+from . import nctm_help
+from . import nctm_run
+from . import sorted_according as sortacc
 
 ######################
 
@@ -106,7 +107,7 @@ class NCTM_Display():
                 curses.init_pair(1, curses.COLOR_RED, 0)
                 curses.init_pair(2, curses.COLOR_CYAN, 0)
                 curses.init_pair(3, curses.COLOR_YELLOW, 0)
-    #           TODO: Effacer les paires de couleur utiles.
+    #           TODO: Effacer les paires de couleur inutiles.
     #            curses.init_pair(3, curses.COLOR_GREEN, 0)
     #            curses.init_pair(4, curses.COLOR_MAGENTA, 0)
     #            curses.init_pair(5, curses.COLOR_BLUE, 0)

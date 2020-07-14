@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from debug import *
+from .debug import *
 
 # Standard libraries import.
 import curses.textpad

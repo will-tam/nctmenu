@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from debug import *
+from .debug import *
 
 # Standard libraries import.
 #import curses.textpad as ctextpad
@@ -11,7 +11,7 @@ import subprocess
 
 
 # Projet modules import.
-import nctm_man
+from . import nctm_man
 
 
 ######################

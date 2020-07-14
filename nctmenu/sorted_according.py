@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # Standard libraries import.
-import collections as c
+import collections as col
 
 
 # Third libraries import.
@@ -27,7 +27,7 @@ class Sorted_according():
         @parameters : odbin = OrderedDict of binaries.
         @result : Sorted OrderedDict.
         """
-        return c.OrderedDict(sorted(odbin.items(), key=lambda t: t[0]))
+        return col.OrderedDict(sorted(odbin.items(), key=lambda t: t[0]))
 
     def filenames(self, odbin):
         """
@@ -39,7 +39,7 @@ class Sorted_according():
             only_name = absolute[0].split("/")
             return only_name[-1]
 
-        return c.OrderedDict(sorted(odbin.items(), key=lambda t: find_name(t)))
+        return col.OrderedDict(sorted(odbin.items(), key=lambda t: find_name(t)))
 
     def documentations_exist(self, odbin):
         """
@@ -50,8 +50,8 @@ class Sorted_according():
         """
         odbin = self.paths(odbin)  # 1rst, ask sort by pathes.
 
-        with_doc = c.OrderedDict()
-        without_doc = c.OrderedDict()
+        with_doc = col.OrderedDict()
+        without_doc = col.OrderedDict()
 
         # TODO: Voir à utiliser self.pathes(odbin).items() directement.
         for k, v in odbin.items():

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-from debug import *
+from nctmenu.debug import *
 
 # Standard library import.
 import sys
@@ -12,15 +12,15 @@ import re
 import curses
 import subprocess
 
-import collections as c
+import collections as col
 
 # Third-part library import.
 import docopt
 
 # Project library import.
-import infos
-import config
-import nctm_display
+from nctmenu import infos
+from nctmenu import config
+from nctmenu import nctm_display
 
 ######################
 
@@ -52,7 +52,7 @@ def main(args):
 #        return only_name[-1]
 
 #    f = conf.found_bins
-#    f = c.OrderedDict(sorted(f.items(), key=lambda t: find_name(t)))
+#    f = col.OrderedDict(sorted(f.items(), key=lambda t: find_name(t)))
 #    conf.found_bins = f
 
 #    f = sortacc.Sorted_according().pathes(conf.found_bins)
