@@ -3,10 +3,14 @@
 
 # Standard library import.
 import sys
+import subprocess
+
 
 PRGNAME = "nctmenu"
-VERSION = "0.20200714"
-
+VERSION = subprocess.check_output(['cat', 'VERSION'],
+                                  stderr=subprocess.STDOUT).\
+                                  decode('UTF-8').\
+                                  strip()   # No encoding=something before Python3.5 and strip string.
 HOWTO = PRGNAME + """.py
 
 Usage:
@@ -18,8 +22,6 @@ Options:
                                              then scan given directories).
     -l, --list      Display in raw format. Can be used redirect files list in another file.
 """
-
-import subprocess
 
 def ask_info(file):
     """

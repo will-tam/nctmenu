@@ -2,15 +2,13 @@
 <!DOCTYPE Session SYSTEM "Session-5.0.dtd">
 <!-- eric6 session file for project nctmenu -->
 <!-- This file was generated automatically, do not edit. -->
-<!-- Saved: 2020-07-14, 15:15:49 -->
+<!-- Saved: 2020-07-14, 23:55:21 -->
 <Session version="5.0">
   <Filenames>
-    <Filename cline="76" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctmenu.py</Filename>
-    <Filename cline="4" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctmenu/infos.py</Filename>
-    <Filename cline="1" cindex="0" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/__init__.py</Filename>
-    <Filename cline="9" cindex="20" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctmenu/__init__.py</Filename>
+    <Filename cline="10" cindex="9" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctmenu.py</Filename>
+    <Filename cline="8" cindex="18" folds="" zoom="0">/home/will/data/programmation/python/nctmenu/nctmenu/infos.py</Filename>
   </Filenames>
-  <ActiveWindow cline="1" cindex="0">/home/will/data/programmation/python/nctmenu/__init__.py</ActiveWindow>
+  <ActiveWindow cline="10" cindex="9">/home/will/data/programmation/python/nctmenu/nctmenu.py</ActiveWindow>
   <Breakpoints/>
   <Watchexpressions/>
   <DebugInfo>
@@ -31,7 +29,10 @@
   <ProjectBrowserStates>
     <ProjectBrowserState name="sources">
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctmenu</ExpandedItemName>
-      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/debug.py</ExpandedItemName>
+      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctmenu/infos.py</ExpandedItemName>
+      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctmenu/sorted_according.py</ExpandedItemName>
+      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctmenu/sorted_according.py@@15</ExpandedItemName>
+      <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctmenu/sorted_according.py@@32</ExpandedItemName>
       <ExpandedItemName>/home/will/data/programmation/python/nctmenu/nctmenu.py</ExpandedItemName>
     </ProjectBrowserState>
     <ProjectBrowserState name="forms"/>
