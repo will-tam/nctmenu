@@ -41,7 +41,7 @@ class NCTM_Help():
               (0, " "),
               (0, 8*"-"),
               (0, " "),
-              (1, "File marked as eXecutable, but  shouldn't be."),
+              (1, "File marked as eXecutable, but shouldn't be."),
     ]
 
     # Public methods.

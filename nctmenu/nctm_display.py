@@ -72,6 +72,10 @@ class NCTM_Display():
                       sortacc.Sorted_according().filenames,
                       sortacc.Sorted_according().documentations_exist,
     ]
+    __sorting_func_name = ["By path     ",
+                           "By filename ",
+                           "With man 1st",
+    ]
 
     # Public methods.
     def __init__(self, stdscr, conf, rawlist=False):
@@ -277,7 +281,17 @@ class NCTM_Display():
         self.__sorting_idx = (self.__sorting_idx + 1) % 3   # Possibility in only 3 kinds of search.
 
         self.conf.found_bins = self.__sorting_func[self.__sorting_idx](self.conf.found_bins)
+
+        if curses.has_colors():
+            self.main_win.attrset(curses.color_pair(2) | curses.A_BOLD)
+        else:
+            self.main_win.attrset(curses.A_BOLD)
+
         self.__bins_to_show = [k for k in self.conf.found_bins.keys()]
+
+        self.main_win.addstr(1, self.__hlen['programs'] + 1, self.__sorting_func_name[self.__sorting_idx])
+
+        self.main_win.attrset(0)
 
     def __keyENTER_pressed(self, key=None):
         """
@@ -388,6 +402,22 @@ class NCTM_Display():
             self.main_win.attrset(0)
 
         self.__make_cells_headers()
+
+        """
+        """
+
+        if curses.has_colors():
+            self.main_win.attrset(curses.color_pair(2) | curses.A_BOLD)
+        else:
+            self.main_win.attrset(curses.A_BOLD)
+
+        self.main_win.addstr(1, self.__hlen['programs'] + 1, self.__sorting_func_name[self.__sorting_idx])
+
+        self.main_win.attrset(0)
+
+        """
+        """
+
         self.__updatedata()
 
         self.__oldmaxy, self.__oldmaxx = (self.__maxy, self.__maxx)
