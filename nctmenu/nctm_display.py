@@ -142,7 +142,7 @@ class NCTM_Display():
             self.__KEY_p : self.__keyP_pressed,
             self.__KEY_P : self.__keyP_pressed,
             self.__KEY_s : self.__keyS_pressed,
-            self.__KEY_S : self.__keyS_pressed
+            self.__KEY_S : self.__keyS_pressed,
         }
 
         keypressed =""

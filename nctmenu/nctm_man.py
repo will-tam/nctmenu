@@ -139,8 +139,8 @@ class NCTM_Man():
         @return : none.
         """
         self.__maxy, self.__maxx = self.__main_win.getmaxyx()
-        self.__main_win.clear()
-        self.man_win.clear()
+        self.__main_win.erase() # No flashing screen.
+        self.man_win.erase()    # No flashing screen.
         self.__maxy -= yadjustement
         self.man_win.box()
         self.man_win.addstr(0, 1, "ESC : exit", curses.A_REVERSE)

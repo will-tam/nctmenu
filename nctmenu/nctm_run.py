@@ -4,6 +4,7 @@ from .debug import *
 
 # Standard libraries import.
 #import curses.textpad as ctextpad
+import curses
 import curses.ascii as cascii
 import subprocess
 
@@ -39,10 +40,16 @@ class NCTM_Run(nctm_man.NCTM_Man):
     #                            'nbcols' : number of columns (caracters)}
     # __posy = y position in option edit.
     # __posx = x position in option edit.
-    # __posx_limit = can't be gone lefter than this position.
+    # __posx_limit_left = can't be gone lefter than this position.
+    # __posx_limit_right = can't be gone righter than this position.
+    # __cde_arg = arguments of the command.
+    # __cde_arg_len = length of arguments of the command.
+    # __curs_arg_pos = position in command arguments.
+
+    __KEY_QUIT = 27
+    __KEY_ENTER = 10
 
     __RUN_WIN_H = 5
-    __KEY_QUIT = 27
     __PROMPT = "args > "
 
     # Public methods.
@@ -75,10 +82,17 @@ class NCTM_Run(nctm_man.NCTM_Man):
 
         self.__posy = 2
         self.__posx = len(self.__PROMPT) + 1
-        self.__posx_limit = self.__posx
+        self.__posx_limit_left = self.__posx
+        self.__posx_limit_right = self.__posx
+
+        self.__cde_arg = ""
+        self.__cde_arg_len = 0
+        self.__curs_arg_pos = 0
 
         self.run_win.keypad(1)
+        #self.run_win.leaveok(0)
 
+        curses.curs_set(2)
         self.mainloop()
 
     def mainloop(self):
@@ -87,7 +101,7 @@ class NCTM_Run(nctm_man.NCTM_Man):
         @parameters : none.
         @return : none.
         """
-        callback = {
+        callbacks = {
             curses.KEY_DOWN : super()._keydown_pressed,
             curses.KEY_NPAGE : super()._keydown_pressed,
             curses.KEY_UP : super()._keyup_pressed,
@@ -105,29 +119,120 @@ class NCTM_Run(nctm_man.NCTM_Man):
                 super()._updateman(self.__RUN_WIN_H)
                 self.__updaterun()
 
-            if keypressed in callback.keys():
-                callback[keypressed](keypressed)
-            else:
-                self.__edit(keypressed)
+            if keypressed:
+                if keypressed in callbacks.keys():
+                    callbacks[keypressed](keypressed)
+                else:
+                    self.__edit_args(keypressed)
 
             super()._manpage_display()
             self.__runpage_display()
 
             keypressed = self.run_win.getch()
 
+        curses.curs_set(0)
+
     # Private methods.
-    def __edit(self, ch):
+    def __edit_args(self, ch):
         """
-        Edit the options.
+        Edit the arguments.
         @parameters : ch = the pressed key.
         @return : none.
         """
-#        self.run_win.addstr(self.__posy, self.__posx, "{} - {}".format(self.__posy, self.__posx))
-        if cascii.isprint(ch):
-            self._
-        else:
-            pass
+        callbacks = {
+            curses.KEY_LEFT : self.__move_left,
+            curses.KEY_RIGHT : self.__move_right,
+            curses.KEY_HOME : self.__move_to_0,
+            curses.KEY_END : self.__move_to_end,
+            curses.KEY_DC : self.__del_right,
+            curses.KEY_BACKSPACE : self.__del_left,
+        }
 
+        if cascii.isprint(ch):
+            self.__add_ch(self.__curs_arg_pos, ch)
+        elif ch in callbacks:
+#            self.__cde_arg = str(callbacks[ch])
+            callbacks[ch]()
+
+        elif ch == self.__KEY_ENTER:
+            self.__run_it(None, None)
+
+
+        self.__updaterun()
+        # TODO: À effacer après MaP.
+#        self.run_win.addstr(self.__posy - 1, self.__posx, "{}".format(ch))
+
+    def __add_ch(self, pos, ch):
+        """
+        Add a character at a position.
+        @parameters : pos = position where add the character.
+                      ch = character to add.
+        @return : none
+        """
+        self.__cde_arg += chr(ch)
+        self.__cde_arg_len = len(self.__cde_arg)
+        self.__curs_arg_pos += 1
+        self.__posx_limit_right += 1
+
+    def __move_left(self):
+        """
+        Move curseur to left in args line.
+        @parameters : none.
+        @return : none.
+        """
+        if self.__curs_arg_pos > 0:
+            self.__curs_arg_pos -= 1
+
+    def __move_right(self):
+        """
+        Move curseur to right in args line.
+        @parameters : none.
+        @return : none.
+        """
+#        if self.__curs_arg_pos < self.__maxx - self.__posx_limit_left - 5:
+        if self.__curs_arg_pos < self.__posx_limit_right - self.__posx_limit_left:
+            self.__curs_arg_pos += 1
+
+    def __move_to_0(self):
+        """
+        Delete a character at right of cursor position.
+        @parameters : none.
+        @return : none.
+        """
+        self.__curs_arg_pos = 0
+
+    def __move_to_end(self):
+        """
+        Delete a character at right of cursor position.
+        @parameters : none.
+        @return : none.
+        """
+        self.__curs_arg_pos = self.__posx_limit_right - self.__posx_limit_left
+
+    def __del_left(self):
+        """
+        Delete a character at left of cursor position.
+        @parameters : none.
+        @return : none.
+        """
+        pass
+
+    def __del_right(self):
+        """
+        Delete a character at right of cursor position.
+        @parameters : none.
+        @return : none.
+        """
+        pass
+
+    def __run_it(self, cde, args):
+        """
+        Delete a character at left of cursor position.
+        @parameters : cde = commande to run.
+                      args = arguments of this command.
+        @return : return code of the command.
+        """
+        pass
 
     def __updaterun(self):
         """
@@ -135,13 +240,15 @@ class NCTM_Run(nctm_man.NCTM_Man):
         @parameters : none.
         @return : none.
         """
-        self.__main_win.clear()
-        self.run_win.clear()
+        self.__main_win.erase() # No flashing screen.
+        self.run_win.erase()    # No flashing screen.
         self.__maxy, self.__maxx = self.__main_win.getmaxyx()
         self.run_win.box()
         self.run_win.addstr(self.__pmaxy - 1, 1, "ESC : exit", curses.A_REVERSE)
-        self.run_win.addstr(2, 1, self.__PROMPT)
+        self.run_win.addstr(2, 1, self.__PROMPT + self.__cde_arg)
         self.run_win.addstr(0, 1, "Run : {} - UNDER BUILDING".format(self.__binpath), curses.A_REVERSE)
+
+        self.run_win.move(self.__posy, self.__posx + self.__curs_arg_pos)
 
 #        self.__fill_pad()
 
@@ -172,4 +279,4 @@ class NCTM_Run(nctm_man.NCTM_Man):
 ######################
 
 if __name__ == "__main__":
-    help(My_class)
+    help(NCTM_Run)
