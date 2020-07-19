@@ -40,8 +40,8 @@ class NCTM_Run(nctm_man.NCTM_Man):
     #                            'nbcols' : number of columns (caracters)}
     # __posy = y position in option edit.
     # __posx = x position in option edit.
-    # __posx_limit_left = can't be gone lefter than this position.
-    # __posx_limit_right = can't be gone righter than this position.
+    # __posx_limit_left = can't be gone further left than this position.
+    # __posx_limit_right = can't be gone further right than this position.
     # __cde_arg = arguments of the command.
     # __cde_arg_len = length of arguments of the command.
     # __curs_arg_pos = position in command arguments.
@@ -169,7 +169,10 @@ class NCTM_Run(nctm_man.NCTM_Man):
                       ch = character to add.
         @return : none
         """
-        self.__cde_arg += chr(ch)
+        pred = self.__cde_arg[:self.__curs_arg_pos]
+        next = self.__cde_arg[self.__curs_arg_pos:]
+        self.__cde_arg = pred + chr(ch) + next
+
         self.__cde_arg_len = len(self.__cde_arg)
         self.__curs_arg_pos += 1
         self.__posx_limit_right += 1
@@ -195,7 +198,7 @@ class NCTM_Run(nctm_man.NCTM_Man):
 
     def __move_to_0(self):
         """
-        Delete a character at right of cursor position.
+        Move cursor at its position 0.
         @parameters : none.
         @return : none.
         """
@@ -203,7 +206,7 @@ class NCTM_Run(nctm_man.NCTM_Man):
 
     def __move_to_end(self):
         """
-        Delete a character at right of cursor position.
+        Move cursor at its further right position.
         @parameters : none.
         @return : none.
         """
@@ -215,7 +218,14 @@ class NCTM_Run(nctm_man.NCTM_Man):
         @parameters : none.
         @return : none.
         """
-        pass
+        if self.__curs_arg_pos > 0:
+            pred = self.__cde_arg[:self.__curs_arg_pos - 1]
+            next = self.__cde_arg[self.__curs_arg_pos:]
+            self.__cde_arg = pred + next
+
+            self.__cde_arg_len = len(self.__cde_arg)
+            self.__curs_arg_pos -= 1
+            self.__posx_limit_right -= 1
 
     def __del_right(self):
         """
@@ -223,7 +233,13 @@ class NCTM_Run(nctm_man.NCTM_Man):
         @parameters : none.
         @return : none.
         """
-        pass
+        if self.__curs_arg_pos < self.__posx_limit_right - self.__posx_limit_left:
+            pred = self.__cde_arg[:self.__curs_arg_pos]
+            next = self.__cde_arg[self.__curs_arg_pos + 1:]
+            self.__cde_arg = pred + next
+
+            self.__cde_arg_len = len(self.__cde_arg)
+            self.__posx_limit_right -= 1
 
     def __run_it(self, cde, args):
         """

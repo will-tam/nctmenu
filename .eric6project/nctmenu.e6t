@@ -1,211 +1,211 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project nctmenu -->
-<!-- Saved: 2020-07-19, 14:34:26 -->
+<!-- Saved: 2020-07-19, 23:55:08 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
-  <Task priority="1" completed="False" type="3" uid="{b52d01f7-df6b-4c94-9670-322da2b944dc}">
+  <Task priority="1" completed="False" type="3" uid="{4978243e-d70c-4103-8f90-db1edfee478e}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2020-07-19, 08:55:13</Created>
+    <Created>2020-07-19, 23:28:19</Created>
     <Resource>
       <Filename>nctmenu.py</Filename>
       <Linenumber>37</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{024558ce-058d-406a-be50-e879be4d8afe}">
+  <Task priority="1" completed="False" type="3" uid="{49f6bbb2-b874-478d-be10-b73c7183a3be}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2020-07-19, 08:55:13</Created>
+    <Created>2020-07-19, 23:28:19</Created>
     <Resource>
       <Filename>nctmenu.py</Filename>
       <Linenumber>43</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{6f7fde7d-b2b2-4839-a2ff-a8ba62d0bb26}">
+  <Task priority="1" completed="False" type="3" uid="{14c089c1-2e7f-4097-ae54-317b00abb440}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2020-07-19, 08:55:13</Created>
+    <Created>2020-07-19, 23:28:19</Created>
     <Resource>
       <Filename>nctmenu.py</Filename>
       <Linenumber>46</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{9e586914-fdfb-4f8c-a238-7a74b3cf6f3b}">
+  <Task priority="1" completed="False" type="1" uid="{52338d78-5676-4dfd-b91a-3dc46cffdb8e}">
     <Summary>TODO: Effacer les paires de couleur inutiles.</Summary>
     <Description></Description>
-    <Created>2020-07-19, 08:55:13</Created>
+    <Created>2020-07-19, 23:28:20</Created>
     <Resource>
       <Filename>nctmenu/nctm_display.py</Filename>
       <Linenumber>114</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{ee26caaa-42a5-46ea-9aba-46c0cad24038}">
+  <Task priority="1" completed="False" type="1" uid="{68500362-1878-40d4-aea2-c5eb2a56ff04}">
     <Summary>TODO: Calcul ou trouver astuce pour éviter le crash en cas de dépacement du nb de car sur fenêtre trop petite</Summary>
     <Description></Description>
-    <Created>2020-07-19, 08:55:13</Created>
+    <Created>2020-07-19, 23:28:20</Created>
     <Resource>
       <Filename>nctmenu/nctm_display.py</Filename>
       <Linenumber>387</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{773c2d1c-4af2-49d4-bc9b-15816a5d1384}">
+  <Task priority="1" completed="False" type="3" uid="{26eb237a-c7ff-490f-87a2-6ea25dd65662}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2020-07-19, 08:55:13</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu.py</Filename>
       <Linenumber>37</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{6935984a-5fd6-42c9-b012-706955f384ac}">
+  <Task priority="1" completed="False" type="3" uid="{c1b67f1a-1634-43d1-8f49-4bc803d586a0}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2020-07-19, 08:55:13</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu.py</Filename>
       <Linenumber>43</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{134fd81e-62ed-49f4-b780-ff71e96f758d}">
+  <Task priority="1" completed="False" type="3" uid="{ac11e788-2dcd-4873-b9ec-7edbacd3a154}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2020-07-19, 08:55:14</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu.py</Filename>
       <Linenumber>46</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{fa12d7cb-360b-40c0-97f1-527f82f9b0e9}">
-    <Summary>TODO: Effacer les paires de couleur inutiles.</Summary>
-    <Description></Description>
-    <Created>2020-07-19, 08:55:14</Created>
-    <Resource>
-      <Filename>nctmenu/nctm_display.py</Filename>
-      <Linenumber>114</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{0cddf931-4bd4-4a3b-8255-c3934396ede9}">
-    <Summary>TODO: Calcul ou trouver astuce pour éviter le crash en cas de dépacement du nb de car sur fenêtre trop petite</Summary>
-    <Description></Description>
-    <Created>2020-07-19, 08:55:14</Created>
-    <Resource>
-      <Filename>nctmenu/nctm_display.py</Filename>
-      <Linenumber>387</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="3" uid="{ac7f4724-1a1c-4c33-9efe-e3d006339967}">
+  <Task priority="1" completed="False" type="3" uid="{bb0e3297-ebab-484a-bd13-4938c9986421}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2020-07-19, 10:10:50</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu/config.py</Filename>
       <Linenumber>91</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{edbe8848-73a1-4779-a663-2a8ed4d09dd7}">
+  <Task priority="1" completed="False" type="3" uid="{0801c8c7-5bb6-4b8d-8f42-d2c7fd58067c}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2020-07-19, 10:10:50</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu/config.py</Filename>
       <Linenumber>105</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{7d2fed8e-2360-4a49-b50f-7bba695a4b44}">
+  <Task priority="1" completed="False" type="3" uid="{ae8b50ad-f0cb-479c-bdb0-843de3c08d06}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2020-07-19, 10:10:50</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu/config.py</Filename>
       <Linenumber>128</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{63c97ffe-9889-40e2-992d-8506f47cd2ef}">
+  <Task priority="1" completed="False" type="3" uid="{793e29f4-737d-489e-bed4-9ee2216a3cdc}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2020-07-19, 10:10:50</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu/config.py</Filename>
       <Linenumber>137</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{e9ae43d6-f290-4da9-b40b-3aa8a89ee74e}">
+  <Task priority="1" completed="False" type="1" uid="{9240cd89-34d6-4cf8-9bb2-bb016050b1f2}">
     <Summary>TODO: commmentaire à effacer à MàP</Summary>
     <Description></Description>
-    <Created>2020-07-19, 10:10:50</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu/config.py</Filename>
       <Linenumber>182</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{d8eaa764-7039-43c9-ab52-a34b645c8ad0}">
+  <Task priority="1" completed="False" type="1" uid="{e429eb43-e1e7-4f34-9d54-4f3e1c137c22}">
     <Summary>TODO: commmentaire à effacer à MàP</Summary>
     <Description></Description>
-    <Created>2020-07-19, 10:10:50</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu/config.py</Filename>
       <Linenumber>188</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{20d4abff-c61c-421c-8aad-6af95e8505f6}">
-    <Summary>TODO: Voir à utiliser self.pathes(odbin).items() directement.</Summary>
+  <Task priority="1" completed="False" type="1" uid="{29692d26-d0c6-4b2f-a8e3-60d8ac6b9381}">
+    <Summary>TODO: Effacer les paires de couleur inutiles.</Summary>
     <Description></Description>
-    <Created>2020-07-19, 10:11:12</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
-      <Filename>nctmenu/sorted_according.py</Filename>
-      <Linenumber>56</Linenumber>
+      <Filename>nctmenu/nctm_display.py</Filename>
+      <Linenumber>114</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{40e7722f-4392-4b40-a254-7c83cfd7b63c}">
+  <Task priority="1" completed="False" type="1" uid="{c5723fa3-33d1-48ba-bc6b-4737ad2607d6}">
+    <Summary>TODO: Calcul ou trouver astuce pour éviter le crash en cas de dépacement du nb de car sur fenêtre trop petite</Summary>
+    <Description></Description>
+    <Created>2020-07-19, 23:28:21</Created>
+    <Resource>
+      <Filename>nctmenu/nctm_display.py</Filename>
+      <Linenumber>387</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="3" uid="{25322788-e571-4fcb-b7b4-0b6c78d72e7c}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2020-07-19, 12:01:56</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu/scans.py</Filename>
       <Linenumber>104</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{c83ad460-1cf5-4642-a883-3dbeffc9d858}">
+  <Task priority="1" completed="False" type="1" uid="{f408d94b-c5f2-422e-95a9-b66d1700e132}">
     <Summary>TODO: Revenir à la recherche locate_real à partir de / après MaP</Summary>
     <Description></Description>
-    <Created>2020-07-19, 12:01:57</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu/scans.py</Filename>
       <Linenumber>114</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{3dee2768-d4c5-40d0-80da-00152907cfa0}">
+  <Task priority="1" completed="False" type="1" uid="{55276f28-9b34-4e92-9e19-ab49ae173f54}">
     <Summary>TODO: À effacer après MaP.</Summary>
     <Description></Description>
-    <Created>2020-07-19, 12:01:57</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu/scans.py</Filename>
       <Linenumber>115</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{0431ee89-3aad-42a7-9c1d-d672108a1214}">
+  <Task priority="1" completed="False" type="3" uid="{dc582668-9036-4fe0-b0ac-7084f3dbbc75}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2020-07-19, 12:01:57</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu/scans.py</Filename>
       <Linenumber>143</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="3" uid="{d651672f-7d38-4347-b3b8-65e9f4bc3cec}">
+  <Task priority="1" completed="False" type="3" uid="{33e2b59c-9cae-47a2-bf3f-270048c49966}">
     <Summary>NOTE: debug</Summary>
     <Description></Description>
-    <Created>2020-07-19, 12:01:57</Created>
+    <Created>2020-07-19, 23:28:21</Created>
     <Resource>
       <Filename>nctmenu/scans.py</Filename>
       <Linenumber>182</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{7cdf4c93-16c5-48fe-8b9f-4e37e3575170}">
+  <Task priority="1" completed="False" type="1" uid="{8082ada8-9659-423c-b1c5-d4baef5ae069}">
+    <Summary>TODO: Voir à utiliser self.pathes(odbin).items() directement.</Summary>
+    <Description></Description>
+    <Created>2020-07-19, 23:28:21</Created>
+    <Resource>
+      <Filename>nctmenu/sorted_according.py</Filename>
+      <Linenumber>56</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{e2845643-94ba-452d-9286-bd81f95b7426}">
     <Summary>TODO: À effacer après MaP.</Summary>
     <Description></Description>
-    <Created>2020-07-19, 14:34:23</Created>
+    <Created>2020-07-19, 23:54:51</Created>
     <Resource>
       <Filename>nctmenu/nctm_run.py</Filename>
       <Linenumber>162</Linenumber>
